@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Songs ❤️ | Me & Insiyah</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #100016, #35083f, #17001f);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 0, 15, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff8fcf;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #eee;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #ff75c8;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 55vh;
+            padding: 150px 20px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .music-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 75px);
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #ff9bd6, #fff, #d28cff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: #d7c7d9;
+            font-size: 18px;
+            max-width: 650px;
+            line-height: 1.7;
+        }
+
+        .heart-line {
+            margin-top: 25px;
+            font-size: 22px;
+            color: #ff72c6;
+            letter-spacing: 10px;
+        }
+
+        /* ================= SONG SECTION ================= */
+
+        .songs-section {
+            padding: 50px 7% 100px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #ff9bd6;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #cdbed0;
+        }
+
+        /* ================= SONG GRID ================= */
+
+        .songs-container {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .song-card {
+            position: relative;
+            padding: 28px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            transition: 0.4s;
+            overflow: hidden;
+        }
+
+        .song-card::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 105, 190, 0.12);
+            border-radius: 50%;
+            top: -90px;
+            right: -90px;
+        }
+
+        .song-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 125, 203, 0.5);
+            box-shadow: 0 15px 40px rgba(255, 0, 170, 0.15);
+        }
+
+        /* ================= SONG TOP ================= */
+
+        .song-top {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .album {
+            width: 105px;
+            height: 105px;
+            min-width: 105px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff5fb7, #7224a7, #15001d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 38px;
+            box-shadow: 0 8px 25px rgba(255, 0, 170, 0.25);
+            position: relative;
+        }
+
+        .album::after {
+            content: "";
+            width: 22px;
+            height: 22px;
+            background: #19001f;
+            border: 5px solid #ff8bcd;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .album.playing {
+            animation: spin 4s linear infinite;
+        }
+
+        .song-info h3 {
+            font-size: 22px;
+            margin-bottom: 7px;
+            color: #fff;
+        }
+
+        .song-info span {
+            color: #ff8fcf;
+            font-size: 14px;
+        }
+
+        /* ================= MEMORY TEXT ================= */
+
+        .memory {
+            margin: 25px 0;
+            color: #d7cadb;
+            line-height: 1.7;
+            font-size: 14px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .memory strong {
+            color: #ff9ed5;
+        }
+
+        /* ================= CONTROLS ================= */
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .play-btn {
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff5db7, #9c3cd0);
+            color: white;
+            font-size: 19px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 0, 170, 0.25);
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .progress-area {
+            flex: 1;
+        }
+
+        .progress {
+            width: 100%;
+            height: 5px;
+            appearance: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+        }
+
+        .time {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 7px;
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        /* ================= FAVORITE ================= */
+
+        .favorite {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 22px;
+            color: #777;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 5;
+        }
+
+        .favorite.active {
+            color: #ff62bd;
+            transform: scale(1.2);
+        }
+
+        /* ================= QUOTE ================= */
+
+        .quote-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .quote {
+            max-width: 750px;
+            margin: auto;
+            font-size: 25px;
+            line-height: 1.7;
+            font-style: italic;
+            color: #eee;
+        }
+
+        .quote span {
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ff8fcf;
+            font-style: normal;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        footer .heart {
+            color: #ff62bd;
+        }
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                padding: 15px 4%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 12px;
+            }
+
+            .songs-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                position: relative;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding-top: 70px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .song-card {
+                padding: 22px;
+            }
+
+            .song-top {
+                gap: 15px;
+            }
+
+            .album {
+                width: 80px;
+                height: 80px;
+                min-width: 80px;
+                font-size: 28px;
+            }
+
+            .song-info h3 {
+                font-size: 18px;
+            }
+
+            .quote {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            Me <span>&</span> Insiyah ❤️
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+            <li><a href="memories.html">Memories</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="letters.html">Letters</a></li>
+            <li><a href="songs.html" class="active">Songs</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="music-icon">
+            🎧
+        </div>
+
+        <h1>Our Songs</h1>
+
+        <p>
+            Some memories don't need pictures or words.
+            Sometimes, all they need is a song.
+        </p>
+
+        <div class="heart-line">
+            ♪ ♡ ♪ ♡ ♪
+        </div>
+
+    </section>
+
+
+    <!-- ================= SONGS ================= -->
+
+    <section class="songs-section">
+
+        <div class="section-title">
+
+            <h2>Our Soundtrack 🎵</h2>
+
+            <p>
+                Every song carries a little piece of our story.
+            </p>
+
+        </div>
+
+
+        <div class="songs-container">
+
+
+            <!-- SONG 1 -->
+
+            <div class="song-card">
+
+                <div class="favorite" onclick="toggleFavorite(this)">
+                    ♡
+                </div>
+
+                <div class="song-top">
+
+                    <div class="album" id="album1">
+                        🎵
+                    </div>
+
+                    <div class="song-info">
+                        <h3>Our First Song</h3>
+                        <span>A song that reminds me of you</span>
+                    </div>
+
+                </div>
+
+                <div class="memory">
+
+                    <strong>Memory:</strong>
+
+                    This song reminds me of the moments when
+                    everything felt simple and beautiful.
+
+                </div>
+
+                <div class="controls">
+
+                    <button class="play-btn"
+                            onclick="toggleSong(0)">
+                        ▶
+                    </button>
+
+                    <div class="progress-area">
+
+                        <input type="range"
+                               class="progress"
+                               id="progress0"
+                               value="0"
+                               min="0"
+                               max="100"
+                               onchange="seekSong(0)">
+
+                        <div class="time">
+
+                            <span id="current0">0:00</span>
+                            <span id="duration0">0:00</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <audio id="audio0"
+                       src="music/song1.mp3">
+                </audio>
+
+            </div>
+
+
+
+            <!-- SONG 2 -->
+
+            <div class="song-card">
+
+                <div class="favorite" onclick="toggleFavorite(this)">
+                    ♡
+                </div>
+
+                <div class="song-top">
+
+                    <div class="album" id="album2">
+                        🎶
+                    </div>
+
+                    <div class="song-info">
+                        <h3>The Song That Feels Like You</h3>
+                        <span>For the person behind the memories</span>
+                    </div>
+
+                </div>
+
+                <div class="memory">
+
+                    <strong>Memory:</strong>
+
+                    Whenever this song plays,
+                    somehow my mind goes back to you.
+
+                </div>
+
+                <div class="controls">
+
+                    <button class="play-btn"
+                            onclick="toggleSong(1)">
+                        ▶
+                    </button>
+
+                    <div class="progress-area">
+
+                        <input type="range"
+                               class="progress"
+                               id="progress1"
+                               value="0"
+                               min="0"
+                               max="100"
+                               onchange="seekSong(1)">
+
+                        <div class="time">
+
+                            <span id="current1">0:00</span>
+                            <span id="duration1">0:00</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <audio id="audio1"
+                       src="music/song2.mp3">
+                </audio>
+
+            </div>
+
+
+
+            <!-- SONG 3 -->
+
+            <div class="song-card">
+
+                <div class="favorite" onclick="toggleFavorite(this)">
+                    ♡
+                </div>
+
+                <div class="song-top">
+
+                    <div class="album" id="album3">
+                        🎼
+                    </div>
+
+                    <div class="song-info">
+                        <h3>That One Memory</h3>
+                        <span>A melody from another moment</span>
+                    </div>
+
+                </div>
+
+                <div class="memory">
+
+                    <strong>Memory:</strong>
+
+                    There are certain songs that don't just play.
+                    They bring an entire memory back to life.
+
+                </div>
+
+                <div class="controls">
+
+                    <button class="play-btn"
+                            onclick="toggleSong(2)">
+                        ▶
+                    </button>
+
+                    <div class="progress-area">
+
+                        <input type="range"
+                               class="progress"
+                               id="progress2"
+                               value="0"
+                               min="0"
+                               max="100"
+                               onchange="seekSong(2)">
+
+                        <div class="time">
+
+                            <span id="current2">0:00</span>
+                            <span id="duration2">0:00</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <audio id="audio2"
+                       src="music/song3.mp3">
+                </audio>
+
+            </div>
+
+
+
+            <!-- SONG 4 -->
+
+            <div class="song-card">
+
+                <div class="favorite" onclick="toggleFavorite(this)">
+                    ♡
+                </div>
+
+                <div class="song-top">
+
+                    <div class="album" id="album4">
+                        🎤
+                    </div>
+
+                    <div class="song-info">
+                        <h3>Late Night Feelings</h3>
+                        <span>For the nights spent thinking</span>
+                    </div>
+
+                </div>
+
+                <div class="memory">
+
+                    <strong>Memory:</strong>
+
+                    The kind of song you listen to when
+                    the world becomes quiet and memories become loud.
+
+                </div>
+
+                <div class="controls">
+
+                    <button class="play-btn"
+                            onclick="toggleSong(3)">
+                        ▶
+                    </button>
+
+                    <div class="progress-area">
+
+                        <input type="range"
+                               class="progress"
+                               id="progress3"
+                               value="0"
+                               min="0"
+                               max="100"
+                               onchange="seekSong(3)">
+
+                        <div class="time">
+
+                            <span id="current3">0:00</span>
+                            <span id="duration3">0:00</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <audio id="audio3"
+                       src="music/song4.mp3">
+                </audio>
+
+            </div>
+
+
+
+            <!-- SONG 5 -->
+
+            <div class="song-card">
+
+                <div class="favorite" onclick="toggleFavorite(this)">
+                    ♡
+                </div>
+
+                <div class="song-top">
+
+                    <div class="album" id="album5">
+                        💕
+                    </div>
+
+                    <div class="song-info">
+                        <h3>My Favorite Memory</h3>
+                        <span>A song I'll always remember</span>
+                    </div>
+
+                </div>
+
+                <div class="memory">
+
+                    <strong>Memory:</strong>
+
+                    Maybe the moment is gone,
+                    but the feeling this song creates is still here.
+
+                </div>
+
+                <div class="controls">
+
+                    <button class="play-btn"
+                            onclick="toggleSong(4)">
+                        ▶
+                    </button>
+
+                    <div class="progress-area">
+
+                        <input type="range"
+                               class="progress"
+                               id="progress4"
+                               value="0"
+                               min="0"
+                               max="100"
+                               onchange="seekSong(4)">
+
+                        <div class="time">
+
+                            <span id="current4">0:00</span>
+                            <span id="duration4">0:00</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <audio id="audio4"
+                       src="music/song5.mp3">
+                </audio>
+
+            </div>
+
+
+
+            <!-- SONG 6 -->
+
+            <div class="song-card">
+
+                <div class="favorite" onclick="toggleFavorite(this)">
+                    ♡
+                </div>
+
+                <div class="song-top">
+
+                    <div class="album" id="album6">
+                        ❤️
+                    </div>
+
+                    <div class="song-info">
+                        <h3>The Last Song</h3>
+                        <span>Not an ending, just another memory</span>
+                    </div>
+
+                </div>
+
+                <div class="memory">
+
+                    <strong>Memory:</strong>
+
+                    Some chapters end, but the songs
+                    connected to them never really disappear.
+
+                </div>
+
+                <div class="controls">
+
+                    <button class="play-btn"
+                            onclick="toggleSong(5)">
+                        ▶
+                    </button>
+
+                    <div class="progress-area">
+
+                        <input type="range"
+                               class="progress"
+                               id="progress5"
+                               value="0"
+                               min="0"
+                               max="100">
+
+                        <div class="time">
+
+                            <span id="current5">0:00</span>
+                            <span id="duration5">0:00</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <audio id="audio5"
+                       src="music/song6.mp3">
+                </audio>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUOTE ================= -->
+
+    <section class="quote-section">
+
+        <div class="quote">
+
+            "Maybe someday these songs will become
+            just songs again...
+
+            But for now, they still sound a little bit
+            like you."
+
+            <span>
+                — For Insiyah ❤️
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with <span class="heart">❤️</span> by Taher
+
+        <br><br>
+
+        Me & Insiyah — Our Memories.
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        const audios = [
+            document.getElementById("audio0"),
+            document.getElementById("audio1"),
+            document.getElementById("audio2"),
+            document.getElementById("audio3"),
+            document.getElementById("audio4"),
+            document.getElementById("audio5")
+        ];
+
+        const buttons = document.querySelectorAll(".play-btn");
+
+
+        /* ================= PLAY / PAUSE ================= */
+
+        function toggleSong(index) {
+
+            const audio = audios[index];
+            const button = buttons[index];
+            const album = document.getElementById("album" + (index + 1));
+
+            /* Stop all other songs */
+
+            audios.forEach((otherAudio, i) => {
+
+                if (i !== index) {
+
+                    otherAudio.pause();
+
+                    buttons[i].innerHTML = "▶";
+
+                    document
+                        .getElementById("album" + (i + 1))
+                        .classList.remove("playing");
+                }
+
+            });
+
+
+            if (audio.paused) {
+
+                audio.play();
+
+                button.innerHTML = "❚❚";
+
+                album.classList.add("playing");
+
+            } else {
+
+                audio.pause();
+
+                button.innerHTML = "▶";
+
+                album.classList.remove("playing");
+
+            }
+
+        }
+
+
+        /* ================= PROGRESS ================= */
+
+        audios.forEach((audio, index) => {
+
+            audio.addEventListener("loadedmetadata", () => {
+
+                document.getElementById("duration" + index).innerText =
+                    formatTime(audio.duration);
+
+            });
+
+
+            audio.addEventListener("timeupdate", () => {
+
+                if (!audio.duration) return;
+
+                const progress =
+                    (audio.currentTime / audio.duration) * 100;
+
+                document.getElementById("progress" + index).value =
+                    progress;
+
+                document.getElementById("current" + index).innerText =
+                    formatTime(audio.currentTime);
+
+            });
+
+
+            audio.addEventListener("ended", () => {
+
+                buttons[index].innerHTML = "▶";
+
+                document
+                    .getElementById("album" + (index + 1))
+                    .classList.remove("playing");
+
+                document.getElementById("progress" + index).value = 0;
+
+            });
+
+        });
+
+
+        /* ================= SEEK ================= */
+
+        function seekSong(index) {
+
+            const audio = audios[index];
+
+            const progress =
+                document.getElementById("progress" + index).value;
+
+            audio.currentTime =
+                (progress / 100) * audio.duration;
+
+        }
+
+
+        /* ================= TIME FORMAT ================= */
+
+        function formatTime(seconds) {
+
+            if (isNaN(seconds)) {
+                return "0:00";
+            }
+
+            const minutes =
+                Math.floor(seconds / 60);
+
+            const remainingSeconds =
+                Math.floor(seconds % 60);
+
+            return minutes + ":" +
+                (remainingSeconds < 10
+                    ? "0" + remainingSeconds
+                    : remainingSeconds);
+
+        }
+
+
+        /* ================= FAVORITES ================= */
+
+        function toggleFavorite(element) {
+
+            element.classList.toggle("active");
+
+            if (element.classList.contains("active")) {
+
+                element.innerHTML = "♥";
+
+            } else {
+
+                element.innerHTML = "♡";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Me & Insiyah ❤️ | Our Story</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background:
+            radial-gradient(circle at 20% 20%, rgba(255, 80, 190, 0.15), transparent 30%),
+            radial-gradient(circle at 80% 70%, rgba(150, 50, 255, 0.18), transparent 30%),
+            linear-gradient(135deg, #09000f, #210022, #100018);
+        color: white;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* =========================
+       LOADING SCREEN
+    ========================== */
+
+    #loader {
+        position: fixed;
+        inset: 0;
+        background: #09000f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 9999;
+        transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    #loader.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .loader-heart {
+        font-size: 65px;
+        animation: heartbeat 1s infinite;
+    }
+
+    #loader p {
+        margin-top: 15px;
+        color: #ffb7ed;
+        letter-spacing: 3px;
+        font-size: 14px;
+    }
+
+    @keyframes heartbeat {
+        0%, 100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.25);
+        }
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================== */
+
+    .background-glow {
+        position: fixed;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.25;
+        z-index: -1;
+    }
+
+    .glow-one {
+        background: #ff39c6;
+        top: -150px;
+        left: -150px;
+    }
+
+    .glow-two {
+        background: #7d35ff;
+        right: -150px;
+        bottom: -150px;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 18px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+
+        background: rgba(15, 0, 22, 0.45);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .logo span {
+        color: #ff85df;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 50%;
+        bottom: -7px;
+        background: #ff72d2;
+        transition: 0.3s;
+        transform: translateX(-50%);
+    }
+
+    .nav-links a:hover {
+        color: #ff9eea;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+        min-height: 100vh;
+        padding: 130px 20px 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+    }
+
+    .hero-content {
+        max-width: 900px;
+        z-index: 5;
+    }
+
+    .small-text {
+        color: #ffacdF;
+        letter-spacing: 5px;
+        font-size: 14px;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        animation: fadeUp 1s ease forwards;
+    }
+
+    .hero h1 {
+        font-size: clamp(55px, 10vw, 120px);
+        line-height: 0.95;
+        margin-bottom: 30px;
+        animation: fadeUp 1.2s ease forwards;
+    }
+
+    .hero h1 span {
+        background: linear-gradient(90deg, #ff70d5, #ffc0f2, #ff70d5);
+        background-size: 200%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: gradientMove 4s infinite linear;
+    }
+
+    @keyframes gradientMove {
+        0% {
+            background-position: 0%;
+        }
+
+        100% {
+            background-position: 200%;
+        }
+    }
+
+    .hero p {
+        max-width: 680px;
+        margin: auto;
+        color: #e7d9e8;
+        font-size: 19px;
+        line-height: 1.8;
+        animation: fadeUp 1.5s ease forwards;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================== */
+
+    .hero-buttons {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .primary-btn {
+        background: linear-gradient(135deg, #ff5bc9, #c93cff);
+        color: white;
+        box-shadow: 0 0 30px rgba(255, 91, 201, 0.35);
+    }
+
+    .primary-btn:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 0 45px rgba(255, 91, 201, 0.65);
+    }
+
+    .secondary-btn {
+        border: 1px solid rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.05);
+        color: white;
+        backdrop-filter: blur(10px);
+    }
+
+    .secondary-btn:hover {
+        background: rgba(255,255,255,0.12);
+        transform: translateY(-5px);
+    }
+
+    /* =========================
+       FLOATING HEARTS
+    ========================== */
+
+    .heart {
+        position: fixed;
+        font-size: 25px;
+        opacity: 0.5;
+        pointer-events: none;
+        animation: floatHeart linear infinite;
+        z-index: 1;
+    }
+
+    .heart:nth-child(1) {
+        left: 8%;
+        bottom: -50px;
+        animation-duration: 10s;
+    }
+
+    .heart:nth-child(2) {
+        left: 25%;
+        bottom: -50px;
+        animation-duration: 13s;
+        animation-delay: 2s;
+    }
+
+    .heart:nth-child(3) {
+        left: 50%;
+        bottom: -50px;
+        animation-duration: 9s;
+        animation-delay: 4s;
+    }
+
+    .heart:nth-child(4) {
+        left: 72%;
+        bottom: -50px;
+        animation-duration: 12s;
+        animation-delay: 1s;
+    }
+
+    .heart:nth-child(5) {
+        left: 90%;
+        bottom: -50px;
+        animation-duration: 11s;
+        animation-delay: 3s;
+    }
+
+    @keyframes floatHeart {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 0.6;
+        }
+
+        80% {
+            opacity: 0.5;
+        }
+
+        100% {
+            transform: translateY(-110vh) rotate(30deg);
+            opacity: 0;
+        }
+    }
+
+    /* =========================
+       STORY SECTION
+    ========================== */
+
+    .section {
+        padding: 100px 8%;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
+
+    .section-title span {
+        color: #ff83dd;
+    }
+
+    .section-subtitle {
+        color: #cbbbcf;
+        margin-bottom: 50px;
+    }
+
+    .story-card {
+        max-width: 850px;
+        margin: auto;
+        padding: 45px;
+        border-radius: 30px;
+
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        backdrop-filter: blur(20px);
+
+        box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .story-card p {
+        color: #e8dce9;
+        line-height: 2;
+        font-size: 17px;
+    }
+
+    /* =========================
+       QUICK ACCESS
+    ========================== */
+
+    .memory-grid {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .memory-card {
+        padding: 30px 20px;
+        min-height: 180px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 25px;
+
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+
+        text-decoration: none;
+        color: white;
+
+        transition: 0.4s;
+        backdrop-filter: blur(15px);
+    }
+
+    .memory-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255,105,210,0.12);
+        border-color: rgba(255,125,220,0.4);
+        box-shadow: 0 20px 40px rgba(255,70,200,0.15);
+    }
+
+    .memory-card .icon {
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
+
+    .memory-card h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .memory-card p {
+        color: #bcaebe;
+        font-size: 13px;
+    }
+
+    /* =========================
+       LOVE QUOTE
+    ========================== */
+
+    .quote-section {
+        padding: 120px 20px;
+        text-align: center;
+    }
+
+    .quote-section h2 {
+        font-size: clamp(30px, 5vw, 55px);
+        max-width: 850px;
+        margin: auto;
+        line-height: 1.4;
+    }
+
+    .quote-section h2 span {
+        color: #ff83dd;
+    }
+
+    .quote-section p {
+        margin-top: 25px;
+        color: #bcaec0;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+        padding: 40px 20px;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        color: #a99aaa;
+        font-size: 13px;
+    }
+
+    footer span {
+        color: #ff7ed9;
+    }
+
+    /* =========================
+       MUSIC BUTTON
+    ========================== */
+
+    .music-btn {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.2);
+        background: rgba(255,80,190,0.15);
+        backdrop-filter: blur(15px);
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: 0.3s;
+    }
+
+    .music-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px rgba(255,100,210,0.5);
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================== */
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 900px) {
+
+        .memory-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .nav-links {
+            gap: 15px;
+        }
+    }
+
+    @media (max-width: 650px) {
+
+        nav {
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 17px;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .hero {
+            padding-top: 120px;
+        }
+
+        .hero p {
+            font-size: 16px;
+        }
+
+        .small-text {
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .story-card {
+            padding: 30px 20px;
+        }
+
+        .story-card p {
+            font-size: 15px;
+        }
+
+        .memory-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .memory-card {
+            min-height: 150px;
+            padding: 20px 10px;
+        }
+
+        .memory-card .icon {
+            font-size: 32px;
+        }
+
+        .memory-card h3 {
+            font-size: 15px;
+        }
+
+        .memory-card p {
+            font-size: 11px;
+        }
+
+        .section {
+            padding: 75px 20px;
+        }
+    }
+
+    @media (max-width: 400px) {
+
+        .memory-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =========================
+     LOADING SCREEN
+========================== -->
+
+<div id="loader">
+    <div class="loader-heart">❤️</div>
+    <p>LOADING OUR STORY...</p>
+</div>
+
+
+<!-- Background Glow -->
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+
+<!-- =========================
+     NAVIGATION
+========================== -->
+
+<nav>
+
+    <div class="logo">
+        ❤️ Me & <span>Insiyah</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="memories.html">Memories</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="letter.html">Letter</a>
+        <a href="songs.html">Songs</a>
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     FLOATING HEARTS
+========================== -->
+
+<div class="heart">❤️</div>
+<div class="heart">💗</div>
+<div class="heart">💕</div>
+<div class="heart">💖</div>
+<div class="heart">❤️</div>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-text">
+            A story worth remembering
+        </div>
+
+        <h1>
+            Me & <span>Insiyah</span>
+        </h1>
+
+        <p>
+            Some moments become memories.
+            Some memories become stories.
+            And some stories stay in our hearts forever.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="memories.html" class="btn primary-btn">
+                Explore Our Memories ✨
+            </a>
+
+            <a href="letter.html" class="btn secondary-btn">
+                Read My Letter 💌
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     OUR STORY
+========================== -->
+
+<section class="section" id="story">
+
+    <h2 class="section-title">
+        Our <span>Story</span> ❤️
+    </h2>
+
+    <p class="section-subtitle">
+        Not just pages... but pieces of a story.
+    </p>
+
+    <div class="story-card">
+
+        <p>
+            There are some people who become a beautiful chapter
+            in our lives without us even realizing how important
+            they will become.
+            <br><br>
+
+            This website is a collection of moments, thoughts,
+            memories, songs, promises and dreams that became
+            part of my story with Insiyah.
+            <br><br>
+
+            Every page holds something different.
+            Some pages remember the past,
+            some describe the present,
+            and some imagine what lies ahead.
+            <br><br>
+
+            Because sometimes memories are not meant to be forgotten.
+            They are meant to be remembered.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     OUR WORLD
+========================== -->
+
+<section class="section">
+
+    <h2 class="section-title">
+        Explore Our <span>World</span> 🌙
+    </h2>
+
+    <p class="section-subtitle">
+        Everything that makes this little story special.
+    </p>
+
+
+    <div class="memory-grid">
+
+        <a href="memories.html" class="memory-card">
+            <div class="icon">❤️</div>
+            <h3>Memories</h3>
+            <p>The moments we remember.</p>
+        </a>
+
+
+        <a href="gallery.html" class="memory-card">
+            <div class="icon">📸</div>
+            <h3>Gallery</h3>
+            <p>Pictures that tell stories.</p>
+        </a>
+
+
+        <a href="letter.html" class="memory-card">
+            <div class="icon">💌</div>
+            <h3>My Letter</h3>
+            <p>Words from my heart.</p>
+        </a>
+
+
+        <a href="songs.html" class="memory-card">
+            <div class="icon">🎵</div>
+            <h3>Our Songs</h3>
+            <p>Music connected to memories.</p>
+        </a>
+
+
+        <a href="thought.html" class="memory-card">
+            <div class="icon">💭</div>
+            <h3>Thoughts</h3>
+            <p>The thoughts I never forget.</p>
+        </a>
+
+
+        <a href="promises.html" class="memory-card">
+            <div class="icon">🤝</div>
+            <h3>Promises</h3>
+            <p>Words that were once spoken.</p>
+        </a>
+
+
+        <a href="memory-box.html" class="memory-card">
+            <div class="icon">📦</div>
+            <h3>Memory Box</h3>
+            <p>A place for everything special.</p>
+        </a>
+
+
+        <a href="search.html" class="memory-card">
+            <div class="icon">🔍</div>
+            <h3>Search</h3>
+            <p>Find something from our story.</p>
+        </a>
+
+
+        <a href="final.html" class="memory-card">
+            <div class="icon">💖</div>
+            <h3>Final Page</h3>
+            <p>The last chapter.</p>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     QUOTE
+========================== -->
+
+<section class="quote-section">
+
+    <h2>
+        "Some people become memories,
+        <span>but some memories become a part of us.</span>"
+    </h2>
+
+    <p>
+        — Me & Insiyah ❤️
+    </p>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    Made with ❤️ for a story worth remembering.
+
+    <br><br>
+
+    <span>Me & Insiyah</span> © 2026
+
+</footer>
+
+
+<!-- =========================
+     MUSIC BUTTON
+========================== -->
+
+<button class="music-btn" id="musicBtn" title="Play music">
+    🎵
+</button>
+
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+    /* Loading screen */
+
+    window.addEventListener("load", function () {
+
+        setTimeout(function () {
+
+            document.getElementById("loader")
+                .classList.add("hide");
+
+        }, 1200);
+
+    });
+
+
+    /* Music */
+
+    const music = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+
+    let playing = false;
+
+    musicBtn.addEventListener("click", function () {
+
+        if (!playing) {
+
+            music.play()
+                .then(() => {
+
+                    playing = true;
+                    musicBtn.innerHTML = "🔊";
+
+                })
+                .catch(() => {
+
+                    alert("Please add a file named song.mp3 in the same folder.");
+
+                });
+
+        } else {
+
+            music.pause();
+
+            playing = false;
+
+            musicBtn.innerHTML = "🎵";
+
+        }
+
+    });
+
+
+    /* Console */
+
+    console.log(
+        "❤️ Welcome to the memories of Me & Insiyah ❤️"
+    );
+
+</script>
+
+</body>
+</html>

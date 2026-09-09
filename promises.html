@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Promises ❤️ | Me & Insiyah</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top, #50104f, transparent 35%),
+                linear-gradient(
+                    135deg,
+                    #0d0013,
+                    #2d0638,
+                    #120018
+                );
+
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            padding: 18px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(10, 0, 15, 0.88);
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff8fcf;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #eee;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #ff75c8;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 78vh;
+
+            padding:
+                150px 20px 80px;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+        .hero-icon {
+            font-size: 70px;
+            margin-bottom: 25px;
+
+            animation:
+                heartbeat 2s infinite;
+        }
+
+        .hero h1 {
+            font-size:
+                clamp(48px, 8vw, 85px);
+
+            margin-bottom: 15px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff91d0,
+                    white,
+                    #d391ff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero h2 {
+            color: #ffb6df;
+            font-weight: 400;
+            font-size: 21px;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            max-width: 750px;
+
+            color: #d8c9dc;
+
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        .scroll {
+            margin-top: 40px;
+
+            color: #ff8dce;
+
+            font-size: 13px;
+            letter-spacing: 3px;
+
+            animation:
+                bounce 2s infinite;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .intro-box {
+            max-width: 820px;
+            margin: auto;
+        }
+
+        .intro h2 {
+            font-size: 38px;
+            color: #ff9bd6;
+            margin-bottom: 25px;
+        }
+
+        .intro p {
+            color: #d8cadd;
+            line-height: 2;
+            font-size: 16px;
+        }
+
+
+        /* ================= PROMISES ================= */
+
+        .promises-section {
+            padding:
+                70px 7% 120px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            color: #ff9bd6;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #cdbed0;
+        }
+
+
+        .promises-grid {
+            max-width: 1150px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 30px;
+        }
+
+
+        .promise-card {
+            position: relative;
+
+            padding: 38px;
+
+            min-height: 280px;
+
+            border-radius: 28px;
+
+            background:
+                rgba(255,255,255,0.055);
+
+            border:
+                1px solid rgba(255,255,255,0.1);
+
+            backdrop-filter: blur(15px);
+
+            overflow: hidden;
+
+            transition: 0.4s;
+        }
+
+        .promise-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 190px;
+            height: 190px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,90,190,0.08);
+
+            top: -90px;
+            right: -90px;
+        }
+
+        .promise-card::after {
+            content: "♥";
+
+            position: absolute;
+
+            bottom: -30px;
+            right: 25px;
+
+            font-size: 120px;
+
+            color:
+                rgba(255,255,255,0.025);
+        }
+
+        .promise-card:hover {
+            transform:
+                translateY(-9px);
+
+            border-color:
+                rgba(255,125,205,0.5);
+
+            box-shadow:
+                0 20px 55px
+                rgba(255,0,170,0.15);
+        }
+
+
+        .promise-number {
+            position: absolute;
+
+            top: 18px;
+            right: 25px;
+
+            font-size: 50px;
+            font-weight: bold;
+
+            color:
+                rgba(255,255,255,0.04);
+        }
+
+        .promise-icon {
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .promise-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .promise-card p {
+            color: #d0c2d3;
+
+            line-height: 1.85;
+
+            font-size: 14px;
+
+            max-width: 480px;
+        }
+
+
+        /* ================= SPECIAL PROMISE ================= */
+
+        .special-section {
+            padding: 110px 20px;
+
+            background:
+                rgba(0,0,0,0.15);
+
+            text-align: center;
+        }
+
+        .special-box {
+            max-width: 850px;
+            margin: auto;
+
+            padding: 55px 45px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,91,184,0.12),
+                    rgba(113,39,140,0.18)
+                );
+
+            border:
+                1px solid
+                rgba(255,145,216,0.2);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,0.25);
+        }
+
+        .special-icon {
+            font-size: 58px;
+
+            margin-bottom: 20px;
+
+            animation:
+                float 3s ease-in-out infinite;
+        }
+
+        .special-box h2 {
+            color: #ff9bd6;
+            font-size: 34px;
+            margin-bottom: 25px;
+        }
+
+        .special-box p {
+            color: #ddd1df;
+
+            line-height: 2;
+
+            font-size: 16px;
+        }
+
+        .signature {
+            margin-top: 30px;
+
+            color: #ff8fcf;
+
+            font-size: 19px;
+
+            font-style: italic;
+        }
+
+
+        /* ================= PROMISE BOOK ================= */
+
+        .book-section {
+            padding: 110px 20px;
+
+            text-align: center;
+        }
+
+        .book-section h2 {
+            color: #ff9bd6;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .book {
+            max-width: 800px;
+
+            margin: auto;
+
+            padding: 55px 45px;
+
+            position: relative;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #24102b,
+                    #3b1245
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,0.4);
+
+            transform:
+                rotate(-1deg);
+
+            transition: 0.4s;
+        }
+
+        .book:hover {
+            transform:
+                rotate(0deg)
+                translateY(-5px);
+        }
+
+        .book::before {
+            content: "";
+
+            position: absolute;
+
+            left: 25px;
+            top: 20px;
+            bottom: 20px;
+
+            width: 2px;
+
+            background:
+                rgba(255,120,200,0.2);
+        }
+
+        .book h3 {
+            color: #ffb0dd;
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 30px;
+
+            margin-bottom: 25px;
+        }
+
+        .book p {
+            color: #ded1df;
+
+            font-family:
+                Georgia,
+                serif;
+
+            line-height: 2;
+
+            font-size: 17px;
+
+            text-align: left;
+        }
+
+        .book .signature {
+            text-align: right;
+
+            font-family:
+                Georgia,
+                serif;
+        }
+
+
+        /* ================= PROMISE RING ================= */
+
+        .ring-section {
+            min-height: 75vh;
+
+            padding: 100px 20px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .ring-box {
+            max-width: 800px;
+        }
+
+        .ring {
+            width: 150px;
+            height: 150px;
+
+            margin: 0 auto 35px;
+
+            border-radius: 50%;
+
+            border:
+                8px solid #ff91d0;
+
+            position: relative;
+
+            box-shadow:
+                0 0 30px
+                rgba(255,100,200,0.3),
+
+                inset 0 0 25px
+                rgba(255,100,200,0.15);
+
+            animation:
+                glow 2.5s ease-in-out infinite;
+        }
+
+        .ring::after {
+            content: "❤️";
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            font-size: 42px;
+        }
+
+        .ring-box h2 {
+            font-size:
+                clamp(38px, 6vw, 60px);
+
+            margin-bottom: 25px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff91d0,
+                    white,
+                    #d391ff
+                );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+        .ring-box p {
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #d8cadd;
+
+            line-height: 2;
+
+            font-size: 17px;
+        }
+
+        .promise-button {
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding:
+                14px 32px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff5db7,
+                    #9133bb
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        .promise-button:hover {
+            transform: scale(1.06);
+
+            box-shadow:
+                0 10px 30px
+                rgba(255,0,170,0.25);
+        }
+
+
+        /* ================= SECRET MESSAGE ================= */
+
+        .secret {
+            max-width: 700px;
+
+            margin: 35px auto 0;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            color: #ffb6df;
+
+            line-height: 1.8;
+
+            display: none;
+
+            animation:
+                fadeIn 1s ease;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+        footer .heart {
+            color: #ff62bd;
+        }
+
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px);
+            }
+
+        }
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(8px);
+            }
+
+        }
+
+        @keyframes glow {
+
+            0%, 100% {
+                box-shadow:
+                    0 0 25px
+                    rgba(255,100,200,0.25);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 55px
+                    rgba(255,100,200,0.55);
+            }
+
+        }
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .promises-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                position: relative;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .promise-card {
+                padding: 30px;
+            }
+
+            .special-box {
+                padding:
+                    40px 22px;
+            }
+
+            .book {
+                padding:
+                    45px 30px;
+            }
+
+            .book p {
+                font-size: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            Me <span>&</span> Insiyah ❤️
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="our-story.html">
+                    Our Story
+                </a>
+            </li>
+
+            <li>
+                <a href="timeline.html">
+                    Timeline
+                </a>
+            </li>
+
+            <li>
+                <a href="memories.html">
+                    Memories
+                </a>
+            </li>
+
+            <li>
+                <a href="gallery.html">
+                    Gallery
+                </a>
+            </li>
+
+            <li>
+                <a href="letters.html">
+                    Letters
+                </a>
+            </li>
+
+            <li>
+                <a href="songs.html">
+                    Songs
+                </a>
+            </li>
+
+            <li>
+                <a href="special-moments.html">
+                    Moments
+                </a>
+            </li>
+
+            <li>
+                <a href="future.html">
+                    Future
+                </a>
+            </li>
+
+            <li>
+                <a href="thought.html">
+                    Thoughts
+                </a>
+            </li>
+
+            <li>
+                <a href="promises.html"
+                   class="active">
+                    Promises
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            🤝
+        </div>
+
+        <h1>
+            Our Promises
+        </h1>
+
+        <h2>
+            Words We Once Gave To Each Other
+        </h2>
+
+        <p>
+
+            Promises are more than words.
+
+            They are little pieces of hope,
+            memories of what we believed,
+            and reminders of what once mattered.
+
+            These are some promises
+            I want to keep close to my heart.
+
+        </p>
+
+        <div class="scroll">
+            SCROLL TO READ
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="intro">
+
+        <div class="intro-box">
+
+            <h2>
+                A Promise Is A Memory Too ❤️
+            </h2>
+
+            <p>
+
+                Sometimes we remember conversations.
+
+                Sometimes we remember places.
+
+                And sometimes we remember
+                the things we promised.
+
+                Whether life keeps those promises
+                exactly the way we imagined or not,
+                the meaning behind them can still
+                remain special.
+
+                So I wrote mine here.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROMISE CARDS ================= -->
+
+    <section class="promises-section">
+
+        <div class="section-title">
+
+            <h2>
+                The Promises
+            </h2>
+
+            <p>
+                Eight little promises from my heart.
+            </p>
+
+        </div>
+
+
+        <div class="promises-grid">
+
+
+            <!-- PROMISE 1 -->
+
+            <div class="promise-card">
+
+                <div class="promise-number">
+                    01
+                </div>
+
+                <div class="promise-icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    I Promise To Remember
+                </h3>
+
+                <p>
+
+                    I promise that I will remember
+                    the beautiful moments.
+
+                    The conversations,
+                    the laughter,
+                    the smiles,
+                    and the little things
+                    that made ordinary days special.
+
+                </p>
+
+            </div>
+
+
+            <!-- PROMISE 2 -->
+
+            <div class="promise-card">
+
+                <div class="promise-number">
+                    02
+                </div>
+
+                <div class="promise-icon">
+                    🫶
+                </div>
+
+                <h3>
+                    I Promise To Appreciate
+                </h3>
+
+                <p>
+
+                    I promise to appreciate
+                    what we had instead of only
+                    thinking about what we didn't have.
+
+                    Every meaningful moment
+                    deserves to be remembered
+                    with gratitude.
+
+                </p>
+
+            </div>
+
+
+            <!-- PROMISE 3 -->
+
+            <div class="promise-card">
+
+                <div class="promise-number">
+                    03
+                </div>
+
+                <div class="promise-icon">
+                    🌙
+                </div>
+
+                <h3>
+                    I Promise To Be Kind
+                </h3>
+
+                <p>
+
+                    Even when things become difficult,
+                    I promise to remember that
+                    kindness matters.
+
+                    Some words can stay in someone's
+                    heart for a very long time.
+
+                </p>
+
+            </div>
+
+
+            <!-- PROMISE 4 -->
+
+            <div class="promise-card">
+
+                <div class="promise-number">
+                    04
+                </div>
+
+                <div class="promise-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    I Promise To Grow
+                </h3>
+
+                <p>
+
+                    I promise to keep becoming
+                    a better version of myself.
+
+                    To learn from mistakes,
+                    understand more,
+                    and carry the lessons
+                    our story taught me.
+
+                </p>
+
+            </div>
+
+
+            <!-- PROMISE 5 -->
+
+            <div class="promise-card">
+
+                <div class="promise-number">
+                    05
+                </div>
+
+                <div class="promise-icon">
+                    🎶
+                </div>
+
+                <h3>
+                    I Promise To Remember The Little Things
+                </h3>
+
+                <p>
+
+                    Sometimes the smallest things
+                    become the strongest memories.
+
+                    A song.
+                    A laugh.
+                    A conversation.
+                    A simple moment.
+
+                    I promise not to forget
+                    how meaningful little things can be.
+
+                </p>
+
+            </div>
+
+
+            <!-- PROMISE 6 -->
+
+            <div class="promise-card">
+
+                <div class="promise-number">
+                    06
+                </div>
+
+                <div class="promise-icon">
+                    🌧️
+                </div>
+
+                <h3>
+                    I Promise To Respect Your Journey
+                </h3>
+
+                <p>
+
+                    Everyone has their own path.
+
+                    I promise to respect yours,
+                    even when it takes you somewhere
+                    different from where I imagined.
+
+                    Caring about someone also means
+                    respecting their choices.
+
+                </p>
+
+            </div>
+
+
+            <!-- PROMISE 7 -->
+
+            <div class="promise-card">
+
+                <div class="promise-number">
+                    07
+                </div>
+
+                <div class="promise-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    I Promise To Keep The Good Memories
+                </h3>
+
+                <p>
+
+                    Whatever changes with time,
+                    I promise to keep the beautiful
+                    memories as beautiful memories.
+
+                    Not every chapter needs to remain open
+                    for the chapter to have mattered.
+
+                </p>
+
+            </div>
+
+
+            <!-- PROMISE 8 -->
+
+            <div class="promise-card">
+
+                <div class="promise-number">
+                    08
+                </div>
+
+                <div class="promise-icon">
+                    ♾️
+                </div>
+
+                <h3>
+                    I Promise To Never Forget The Impact
+                </h3>
+
+                <p>
+
+                    Some people change our lives
+                    without even realizing it.
+
+                    I promise I will remember
+                    the person I became,
+                    the things I learned,
+                    and the memories I carry
+                    because of this chapter.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SPECIAL PROMISE ================= -->
+
+    <section class="special-section">
+
+        <div class="special-box">
+
+            <div class="special-icon">
+                💌
+            </div>
+
+            <h2>
+                The Promise That Matters Most
+            </h2>
+
+            <p>
+
+                Insiyah,
+
+                if I could keep only one promise,
+                it would be this:
+
+                I promise to remember our story
+                with honesty.
+
+                Not only the perfect moments,
+                but the difficult ones too.
+
+                Not only the happiness,
+                but everything that made
+                the journey real.
+
+                Because whatever happens in life,
+                I never want to pretend
+                that something meaningful
+                never happened.
+
+            </p>
+
+            <div class="signature">
+                — Taher ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROMISE BOOK ================= -->
+
+    <section class="book-section">
+
+        <h2>
+            A Page From My Heart 📖
+        </h2>
+
+        <div class="book">
+
+            <h3>
+                Dear Insiyah...
+            </h3>
+
+            <p>
+
+                I don't know what the future
+                has written for us.
+
+                Maybe life will surprise us.
+
+                Maybe we will look back at these
+                memories years from now.
+
+                But if there is one thing I know,
+                it is that the moments we shared
+                became a part of my life.
+
+                So this is my promise:
+
+                I will keep learning.
+
+                I will keep growing.
+
+                I will keep becoming someone
+                I can be proud of.
+
+                And I will always be grateful
+                for the chapter that taught me
+                so much about love,
+                memories and myself.
+
+            </p>
+
+            <div class="signature">
+                — Taher
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RING ================= -->
+
+    <section class="ring-section">
+
+        <div class="ring-box">
+
+            <div class="ring">
+            </div>
+
+            <h2>
+                One Promise. One Memory. One Heart.
+            </h2>
+
+            <p>
+
+                Some promises are spoken.
+
+                Some are written.
+
+                And some are simply kept
+                quietly inside the heart.
+
+                This one is for the memories
+                that will always have a place here.
+
+            </p>
+
+            <button
+                class="promise-button"
+                onclick="showPromise()">
+
+                Read One Last Promise ❤️
+
+            </button>
+
+
+            <div
+                class="secret"
+                id="secretPromise">
+
+                I promise to keep moving forward,
+                while carrying the beautiful memories
+                with me.
+
+                <br><br>
+
+                And wherever life takes me,
+                I will always be thankful
+                that our paths crossed.
+
+                <br><br>
+
+                <strong>
+                    Some promises are forever
+                    in the memories they create.
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with
+        <span class="heart">
+            ❤️
+        </span>
+        by Taher
+
+        <br><br>
+
+        Me & Insiyah — Our Memories.
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function showPromise() {
+
+            const message =
+                document.getElementById(
+                    "secretPromise"
+                );
+
+            if (
+                message.style.display ===
+                "block"
+            ) {
+
+                message.style.display =
+                    "none";
+
+            } else {
+
+                message.style.display =
+                    "block";
+
+                message.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+
+        }
+
+
+        /* ================= CARD REVEAL ================= */
+
+        const cards =
+            document.querySelectorAll(
+                ".promise-card"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.style.opacity =
+                                "1";
+
+                            entry.target.style.transform =
+                                "translateY(0)";
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        cards.forEach(card => {
+
+            card.style.opacity = "0";
+
+            card.style.transform =
+                "translateY(30px)";
+
+            card.style.transition =
+                "0.7s ease";
+
+            observer.observe(card);
+
+        });
+
+    </script>
+
+
+</body>
+</html>

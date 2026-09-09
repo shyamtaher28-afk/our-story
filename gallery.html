@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Gallery ❤️ | Me & Insiyah</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #100016, #35083f, #17001f);
+            color: white;
+            overflow-x: hidden;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 20px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(16, 0, 22, 0.78);
+
+            backdrop-filter: blur(15px);
+
+            z-index: 1000;
+        }
+
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+
+        .logo span {
+            color: #ff8ee7;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: #ff8ee7;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+
+            min-height: 70vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 120px 20px 70px;
+
+            position: relative;
+        }
+
+
+        .hero-content {
+
+            max-width: 850px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .small-title {
+
+            color: #ffb7f1;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(55px, 9vw, 95px);
+
+            line-height: 1;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 span {
+
+            color: #ff8ee7;
+        }
+
+
+        .hero p {
+
+            color: #decde0;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        /* ================= GALLERY SECTION ================= */
+
+        .gallery-section {
+
+            padding: 80px 7% 120px;
+        }
+
+
+        .section-heading {
+
+            text-align: center;
+
+            margin-bottom: 65px;
+        }
+
+
+        .section-heading h2 {
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .section-heading h2 span {
+
+            color: #ff8ee7;
+        }
+
+
+        .section-heading p {
+
+            color: #bfaec1;
+
+            font-size: 16px;
+        }
+
+
+        /* ================= GALLERY GRID ================= */
+
+        .gallery {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* ================= PHOTO CARD ================= */
+
+        .photo-card {
+
+            position: relative;
+
+            height: 300px;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4a0b53,
+                    #1b0022
+                );
+
+            border:
+                1px solid
+                rgba(255, 142, 231, 0.2);
+
+            transition: 0.4s;
+        }
+
+
+        .photo-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color: #ff8ee7;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+
+        .photo-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: 0.5s;
+        }
+
+
+        .photo-card:hover img {
+
+            transform: scale(1.08);
+        }
+
+
+        /* ================= PHOTO OVERLAY ================= */
+
+        .photo-overlay {
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 25px 20px 20px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(10, 0, 15, 0.9)
+                );
+
+            transform: translateY(5px);
+
+            transition: 0.4s;
+        }
+
+
+        .photo-card:hover .photo-overlay {
+
+            transform: translateY(0);
+        }
+
+
+        .photo-overlay h3 {
+
+            font-size: 21px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .photo-overlay p {
+
+            color: #d4c5d5;
+
+            font-size: 13px;
+        }
+
+
+        /* ================= PLACEHOLDER ================= */
+
+        .photo-placeholder {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+            color: #aa96ac;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #4a0b53,
+                    #1b0022
+                );
+        }
+
+
+        .photo-placeholder .icon {
+
+            font-size: 45px;
+        }
+
+
+        .photo-placeholder p {
+
+            font-size: 14px;
+
+            color: #9f8da1;
+        }
+
+
+        /* ================= LIGHTBOX ================= */
+
+        .lightbox {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(5, 0, 8, 0.94);
+
+            backdrop-filter: blur(10px);
+
+            z-index: 3000;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 30px;
+        }
+
+
+        .lightbox.active {
+
+            display: flex;
+        }
+
+
+        .lightbox-content {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 950px;
+
+            text-align: center;
+        }
+
+
+        .lightbox-image {
+
+            max-width: 100%;
+
+            max-height: 75vh;
+
+            object-fit: contain;
+
+            border-radius: 15px;
+
+            border:
+                1px solid
+                rgba(255, 142, 231, 0.3);
+
+            box-shadow:
+                0 30px 80px
+                rgba(0, 0, 0, 0.6);
+        }
+
+
+        .caption {
+
+            margin-top: 20px;
+        }
+
+
+        .caption h3 {
+
+            font-size: 25px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .caption p {
+
+            color: #c9b8ca;
+
+            font-size: 15px;
+        }
+
+
+        /* ================= CLOSE BUTTON ================= */
+
+        .close {
+
+            position: fixed;
+
+            top: 25px;
+
+            right: 35px;
+
+            width: 45px;
+
+            height: 45px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.25);
+
+            background:
+                rgba(255,255,255,0.08);
+
+            color: white;
+
+            font-size: 27px;
+
+            cursor: pointer;
+
+            z-index: 3001;
+
+            transition: 0.3s;
+        }
+
+
+        .close:hover {
+
+            background: #ff8ee7;
+
+            color: #210025;
+        }
+
+
+        /* ================= NAVIGATION BUTTONS ================= */
+
+        .gallery-btn {
+
+            position: fixed;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255, 142, 231, 0.4);
+
+            background:
+                rgba(255,255,255,0.08);
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            z-index: 3001;
+
+            transition: 0.3s;
+        }
+
+
+        .gallery-btn:hover {
+
+            background: #ff8ee7;
+
+            color: #210025;
+        }
+
+
+        .prev {
+
+            left: 25px;
+        }
+
+
+        .next {
+
+            right: 25px;
+        }
+
+
+        /* ================= SPECIAL MESSAGE ================= */
+
+        .special {
+
+            padding: 100px 20px 120px;
+
+            text-align: center;
+        }
+
+
+        .special-box {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            padding: 60px 40px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid
+                rgba(255,142,231,0.2);
+        }
+
+
+        .special-heart {
+
+            font-size: 50px;
+
+            margin-bottom: 20px;
+
+            animation: heartbeat 2s infinite;
+        }
+
+
+        .special-box h2 {
+
+            font-size: 36px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .special-box h2 span {
+
+            color: #ff8ee7;
+        }
+
+
+        .special-box p {
+
+            color: #cbbaca;
+
+            line-height: 1.8;
+
+            font-size: 17px;
+        }
+
+
+        /* ================= FLOATING HEARTS ================= */
+
+        .floating-heart {
+
+            position: fixed;
+
+            font-size: 20px;
+
+            opacity: 0.18;
+
+            pointer-events: none;
+
+            animation:
+                floating
+                7s
+                infinite
+                ease-in-out;
+
+            z-index: 0;
+        }
+
+
+        .heart1 {
+
+            left: 7%;
+            top: 30%;
+        }
+
+
+        .heart2 {
+
+            right: 8%;
+            top: 45%;
+
+            animation-delay: 2s;
+        }
+
+
+        .heart3 {
+
+            left: 15%;
+            bottom: 12%;
+
+            animation-delay: 4s;
+        }
+
+
+        @keyframes floating {
+
+            0%, 100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-35px)
+                    rotate(10deg);
+            }
+        }
+
+
+        /* ================= HEARTBEAT ================= */
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+
+                transform: scale(1);
+            }
+
+            50% {
+
+                transform: scale(1.15);
+            }
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            color: #a999aa;
+        }
+
+
+        footer span {
+
+            color: #ff8ee7;
+        }
+
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 900px) {
+
+            .gallery {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .photo-card {
+
+                height: 280px;
+            }
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 650px) {
+
+            nav {
+
+                padding: 18px 5%;
+            }
+
+
+            .logo {
+
+                font-size: 18px;
+            }
+
+
+            .nav-links {
+
+                gap: 10px;
+            }
+
+
+            .nav-links a {
+
+                font-size: 11px;
+            }
+
+
+            .hero {
+
+                min-height: 65vh;
+            }
+
+
+            .hero p {
+
+                font-size: 16px;
+            }
+
+
+            .section-heading h2 {
+
+                font-size: 34px;
+            }
+
+
+            .gallery {
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+
+            .photo-card {
+
+                height: 300px;
+            }
+
+
+            .lightbox {
+
+                padding: 15px;
+            }
+
+
+            .lightbox-image {
+
+                max-height: 65vh;
+            }
+
+
+            .close {
+
+                top: 15px;
+
+                right: 15px;
+            }
+
+
+            .gallery-btn {
+
+                width: 42px;
+
+                height: 42px;
+
+                font-size: 20px;
+            }
+
+
+            .prev {
+
+                left: 10px;
+            }
+
+
+            .next {
+
+                right: 10px;
+            }
+
+
+            .special-box {
+
+                padding: 45px 25px;
+            }
+
+
+            .special-box h2 {
+
+                font-size: 29px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            ❤️ Me & <span>Insiyah</span>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="our-story.html">
+                Our Story
+            </a>
+
+            <a href="timeline.html">
+                Timeline
+            </a>
+
+            <a href="memories.html">
+                Memories
+            </a>
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= FLOATING HEARTS ================= -->
+
+    <div class="floating-heart heart1">
+        ❤️
+    </div>
+
+    <div class="floating-heart heart2">
+        💕
+    </div>
+
+    <div class="floating-heart heart3">
+        💗
+    </div>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Moments Captured In Time
+            </div>
+
+
+            <h1>
+
+                Our <span>Gallery</span>
+
+            </h1>
+
+
+            <p>
+
+                Every photograph holds a moment.
+                Every moment holds a memory.
+                And every memory becomes part of our story.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= GALLERY ================= -->
+
+    <section class="gallery-section">
+
+
+        <div class="section-heading">
+
+            <h2>
+
+                Little Pieces Of
+                <span>Our Story</span>
+
+            </h2>
+
+
+            <p>
+
+                Click on any photograph to view it.
+
+            </p>
+
+        </div>
+
+
+        <div class="gallery">
+
+
+            <!-- PHOTO 1 -->
+
+            <div
+                class="photo-card"
+                onclick="openLightbox(0)"
+            >
+
+                <div class="photo-placeholder">
+
+                    <div class="icon">
+                        📸
+                    </div>
+
+                    <p>
+                        Add Photo 01
+                    </p>
+
+                </div>
+
+                <div class="photo-overlay">
+
+                    <h3>
+                        The Beginning
+                    </h3>
+
+                    <p>
+                        A memory from where it all started.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 2 -->
+
+            <div
+                class="photo-card"
+                onclick="openLightbox(1)"
+            >
+
+                <div class="photo-placeholder">
+
+                    <div class="icon">
+                        📸
+                    </div>
+
+                    <p>
+                        Add Photo 02
+                    </p>
+
+                </div>
+
+                <div class="photo-overlay">
+
+                    <h3>
+                        A Beautiful Moment
+                    </h3>
+
+                    <p>
+                        One moment worth remembering.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 3 -->
+
+            <div
+                class="photo-card"
+                onclick="openLightbox(2)"
+            >
+
+                <div class="photo-placeholder">
+
+                    <div class="icon">
+                        📸
+                    </div>
+
+                    <p>
+                        Add Photo 03
+                    </p>
+
+                </div>
+
+                <div class="photo-overlay">
+
+                    <h3>
+                        A Smile
+                    </h3>
+
+                    <p>
+                        A moment that made everything brighter.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 4 -->
+
+            <div
+                class="photo-card"
+                onclick="openLightbox(3)"
+            >
+
+                <div class="photo-placeholder">
+
+                    <div class="icon">
+                        📸
+                    </div>
+
+                    <p>
+                        Add Photo 04
+                    </p>
+
+                </div>
+
+                <div class="photo-overlay">
+
+                    <h3>
+                        A Special Day
+                    </h3>
+
+                    <p>
+                        A day that became a memory.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 5 -->
+
+            <div
+                class="photo-card"
+                onclick="openLightbox(4)"
+            >
+
+                <div class="photo-placeholder">
+
+                    <div class="icon">
+                        📸
+                    </div>
+
+                    <p>
+                        Add Photo 05
+                    </p>
+
+                </div>
+
+                <div class="photo-overlay">
+
+                    <h3>
+                        Together
+                    </h3>
+
+                    <p>
+                        Another little piece of our story.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 6 -->
+
+            <div
+                class="photo-card"
+                onclick="openLightbox(5)"
+            >
+
+                <div class="photo-placeholder">
+
+                    <div class="icon">
+                        📸
+                    </div>
+
+                    <p>
+                        Add Photo 06
+                    </p>
+
+                </div>
+
+                <div class="photo-overlay">
+
+                    <h3>
+                        A Memory
+                    </h3>
+
+                    <p>
+                        Something I never want to forget.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 7 -->
+
+            <div
+                class="photo-card"
+                onclick="openLightbox(6)"
+            >
+
+                <div class="photo-placeholder">
+
+                    <div class="icon">
+                        📸
+                    </div>
+
+                    <p>
+                        Add Photo 07
+                    </p>
+
+                </div>
+
+                <div class="photo-overlay">
+
+                    <h3>
+                        That Moment
+                    </h3>
+
+                    <p>
+                        A moment frozen in time.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 8 -->
+
+            <div
+                class="photo-card"
+                onclick="openLightbox(7)"
+            >
+
+                <div class="photo-placeholder">
+
+                    <div class="icon">
+                        📸
+                    </div>
+
+                    <p>
+                        Add Photo 08
+                    </p>
+
+                </div>
+
+                <div class="photo-overlay">
+
+                    <h3>
+                        Another Memory
+                    </h3>
+
+                    <p>
+                        A memory worth keeping.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 9 -->
+
+            <div
+                class="photo-card"
+                onclick="openLightbox(8)"
+            >
+
+                <div class="photo-placeholder">
+
+                    <div class="icon">
+                        📸
+                    </div>
+
+                    <p>
+                        Add Photo 09
+                    </p>
+
+                </div>
+
+                <div class="photo-overlay">
+
+                    <h3>
+                        Forever Remembered
+                    </h3>
+
+                    <p>
+                        One more memory in our story.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SPECIAL MESSAGE ================= -->
+
+    <section class="special">
+
+        <div class="special-box">
+
+            <div class="special-heart">
+                ❤️
+            </div>
+
+
+            <h2>
+
+                A Picture Can Hold A
+                <span>Memory</span>
+
+            </h2>
+
+
+            <p>
+
+                Years from now, these photographs won't
+                just be pictures. They will be little pieces
+                of the moments that once mattered.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= LIGHTBOX ================= -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+    >
+
+        <button
+            class="close"
+            onclick="closeLightbox()"
+        >
+            ×
+        </button>
+
+
+        <button
+            class="gallery-btn prev"
+            onclick="previousPhoto()"
+        >
+            ❮
+        </button>
+
+
+        <div class="lightbox-content">
+
+            <img
+                id="lightboxImage"
+                class="lightbox-image"
+                src=""
+                alt="Memory"
+            >
+
+
+            <div class="caption">
+
+                <h3 id="lightboxTitle">
+                </h3>
+
+                <p id="lightboxDescription">
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="gallery-btn next"
+            onclick="nextPhoto()"
+        >
+            ❯
+        </button>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with ❤️ by
+        <span>Taher</span>
+
+        <br><br>
+
+        Me & Insiyah — Our Memories
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /*
+            ==========================================
+            GALLERY DATA
+            ==========================================
+
+            Replace the image paths with your
+            actual photographs.
+
+            Example:
+
+            "images/photo1.jpg"
+
+        */
+
+        const photos = [
+
+            {
+                image: "images/photo1.jpg",
+                title: "The Beginning",
+                description:
+                    "A memory from where it all started."
+            },
+
+            {
+                image: "images/photo2.jpg",
+                title: "A Beautiful Moment",
+                description:
+                    "One moment worth remembering."
+            },
+
+            {
+                image: "images/photo3.jpg",
+                title: "A Smile",
+                description:
+                    "A moment that made everything brighter."
+            },
+
+            {
+                image: "images/photo4.jpg",
+                title: "A Special Day",
+                description:
+                    "A day that became a memory."
+            },
+
+            {
+                image: "images/photo5.jpg",
+                title: "Together",
+                description:
+                    "Another little piece of our story."
+            },
+
+            {
+                image: "images/photo6.jpg",
+                title: "A Memory",
+                description:
+                    "Something I never want to forget."
+            },
+
+            {
+                image: "images/photo7.jpg",
+                title: "That Moment",
+                description:
+                    "A moment frozen in time."
+            },
+
+            {
+                image: "images/photo8.jpg",
+                title: "Another Memory",
+                description:
+                    "A memory worth keeping."
+            },
+
+            {
+                image: "images/photo9.jpg",
+                title: "Forever Remembered",
+                description:
+                    "One more memory in our story."
+            }
+
+        ];
+
+
+        /* ================= CURRENT PHOTO ================= */
+
+        let currentPhoto = 0;
+
+
+        /* ================= OPEN LIGHTBOX ================= */
+
+        function openLightbox(index) {
+
+            currentPhoto = index;
+
+            updateLightbox();
+
+            document
+                .getElementById("lightbox")
+                .classList.add("active");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        /* ================= CLOSE LIGHTBOX ================= */
+
+        function closeLightbox() {
+
+            document
+                .getElementById("lightbox")
+                .classList.remove("active");
+
+            document.body.style.overflow = "auto";
+        }
+
+
+        /* ================= UPDATE PHOTO ================= */
+
+        function updateLightbox() {
+
+            const photo = photos[currentPhoto];
+
+            document
+                .getElementById("lightboxImage")
+                .src = photo.image;
+
+            document
+                .getElementById("lightboxTitle")
+                .textContent = photo.title;
+
+            document
+                .getElementById("lightboxDescription")
+                .textContent = photo.description;
+        }
+
+
+        /* ================= NEXT PHOTO ================= */
+
+        function nextPhoto() {
+
+            currentPhoto++;
+
+            if (currentPhoto >= photos.length) {
+
+                currentPhoto = 0;
+
+            }
+
+            updateLightbox();
+        }
+
+
+        /* ================= PREVIOUS PHOTO ================= */
+
+        function previousPhoto() {
+
+            currentPhoto--;
+
+            if (currentPhoto < 0) {
+
+                currentPhoto = photos.length - 1;
+
+            }
+
+            updateLightbox();
+        }
+
+
+        /* ================= KEYBOARD CONTROLS ================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    !document
+                        .getElementById("lightbox")
+                        .classList
+                        .contains("active")
+                ) {
+
+                    return;
+
+                }
+
+
+                if (event.key === "ArrowRight") {
+
+                    nextPhoto();
+
+                }
+
+
+                if (event.key === "ArrowLeft") {
+
+                    previousPhoto();
+
+                }
+
+
+                if (event.key === "Escape") {
+
+                    closeLightbox();
+
+                }
+
+            }
+        );
+
+
+        /* ================= CLOSE OUTSIDE ================= */
+
+        document
+            .getElementById("lightbox")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (
+                        event.target === this
+                    ) {
+
+                        closeLightbox();
+
+                    }
+
+                }
+            );
+
+    </script>
+
+</body>
+
+</html>
+

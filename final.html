@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Final Chapter ❤️ | Me & Insiyah</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: white;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(156, 39, 176, 0.25), transparent 35%),
+                radial-gradient(circle at 80% 80%, rgba(255, 64, 129, 0.18), transparent 35%),
+                linear-gradient(135deg, #080014, #170027, #250038, #100019);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: center;
+            background: rgba(10, 0, 20, 0.75);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #ff6fae;
+            text-shadow: 0 0 12px rgba(255, 105, 180, 0.8);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeIn 2s ease;
+        }
+
+        .small-text {
+            color: #ff8fc4;
+            font-size: 14px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .heart {
+            font-size: 70px;
+            display: inline-block;
+            animation: heartbeat 1.8s infinite;
+            filter: drop-shadow(0 0 25px rgba(255, 50, 130, 0.7));
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(50px, 9vw, 100px);
+            font-weight: normal;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #fff, #ff9ac7, #d98cff, #fff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 4vw, 32px);
+            font-weight: normal;
+            color: #f6d7e8;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.9;
+            color: #cdbed2;
+            font-size: 17px;
+        }
+
+        .scroll-down {
+            margin-top: 45px;
+            display: inline-block;
+            color: #ff7eb5;
+            text-decoration: none;
+            border: 1px solid rgba(255, 126, 181, 0.5);
+            padding: 13px 28px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .scroll-down:hover {
+            background: rgba(255, 105, 180, 0.1);
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.25);
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .section-label {
+            color: #ff79b4;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 55px);
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .section-text {
+            max-width: 720px;
+            margin: 0 auto 45px;
+            color: #c7b8cd;
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        /* ================= CHAPTERS ================= */
+
+        .chapters {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 50px;
+        }
+
+        .chapter {
+            padding: 30px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.035);
+            transition: 0.4s;
+        }
+
+        .chapter:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 105, 180, 0.35);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .chapter span {
+            font-size: 30px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .chapter h3 {
+            font-weight: normal;
+            color: #ff9bc8;
+            margin-bottom: 10px;
+        }
+
+        .chapter p {
+            color: #aaa0b0;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* ================= FINAL LETTER ================= */
+
+        .letter-box {
+            max-width: 800px;
+            margin: 50px auto 0;
+            padding: 55px 45px;
+            border-radius: 25px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.06),
+                    rgba(255, 105, 180, 0.035)
+                );
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+            text-align: left;
+            position: relative;
+        }
+
+        .letter-box::before {
+            content: "“";
+            position: absolute;
+            top: 5px;
+            left: 25px;
+            font-size: 100px;
+            color: rgba(255, 105, 180, 0.15);
+        }
+
+        .letter-box p {
+            color: #ddd0dc;
+            line-height: 2;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .letter-box .signature {
+            margin-top: 35px;
+            text-align: right;
+            color: #ff91bf;
+            font-size: 18px;
+        }
+
+        /* ================= QUOTE ================= */
+
+        .quote-section {
+            min-height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quote {
+            max-width: 850px;
+        }
+
+        .quote-symbol {
+            font-size: 60px;
+            color: #ff72af;
+            opacity: 0.7;
+        }
+
+        .quote h2 {
+            font-size: clamp(28px, 5vw, 52px);
+            line-height: 1.4;
+            font-weight: normal;
+            color: #f7e7ef;
+        }
+
+        .quote p {
+            margin-top: 25px;
+            color: #a99eaa;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        /* ================= FINAL BUTTON ================= */
+
+        .final-section {
+            padding-bottom: 130px;
+        }
+
+        .final-card {
+            padding: 70px 25px;
+            border-radius: 30px;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 70, 150, 0.13),
+                    transparent 65%
+                );
+        }
+
+        .final-card h2 {
+            font-size: clamp(35px, 6vw, 65px);
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .final-card p {
+            color: #bdb0c0;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.9;
+        }
+
+        .home-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255, 126, 181, 0.5);
+            background: rgba(255, 105, 180, 0.07);
+            transition: 0.35s;
+        }
+
+        .home-btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 105, 180, 0.15);
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.25);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            color: #817684;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #ff6fae;
+        }
+
+        /* ================= FLOATING HEARTS ================= */
+
+        .floating-heart {
+            position: fixed;
+            bottom: -30px;
+            font-size: 15px;
+            opacity: 0;
+            pointer-events: none;
+            animation: floatHeart linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) scale(0.7);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-110vh) scale(1.2) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= SCROLL ANIMATION ================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 1s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            nav {
+                padding: 15px 10px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .chapters {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .letter-box {
+                padding: 40px 25px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                position: relative;
+            }
+
+            nav ul {
+                gap: 8px 12px;
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .heart {
+                font-size: 55px;
+            }
+
+            .chapters {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 75px 18px;
+            }
+
+            .letter-box {
+                padding: 35px 20px;
+            }
+
+            .letter-box p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+            <li><a href="memories.html">Memories</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="letters.html">Letters</a></li>
+            <li><a href="songs.html">Songs</a></li>
+            <li><a href="special-moments.html">Moments</a></li>
+            <li><a href="future.html">Future</a></li>
+            <li><a href="thought.html">Thoughts</a></li>
+            <li><a href="promises.html">Promises</a></li>
+            <li><a href="memory-box.html">Memory Box</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="final.html" class="active">Final</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-text">
+                The Final Chapter
+            </div>
+
+            <div class="heart">
+                ❤️
+            </div>
+
+            <h1>Forever In My Memories</h1>
+
+            <h2>Some Stories Never Really End.</h2>
+
+            <p>
+                We started with moments.
+                We collected memories.
+                We created stories.
+                And somewhere between all those little things,
+                you became a part of my life that I will always remember.
+            </p>
+
+            <a href="#chapters" class="scroll-down">
+                ↓ Continue
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CHAPTERS ================= -->
+
+    <section id="chapters">
+
+        <div class="reveal">
+
+            <div class="section-label">
+                Everything We Had
+            </div>
+
+            <h2 class="section-title">
+                Our Little Chapters
+            </h2>
+
+            <p class="section-text">
+                Every page of this website represents something.
+                A conversation. A smile. A song. A memory.
+                A feeling that once meant everything.
+            </p>
+
+        </div>
+
+
+        <div class="chapters">
+
+            <div class="chapter reveal">
+                <span>🌱</span>
+                <h3>The Beginning</h3>
+                <p>
+                    The first conversations and the moments
+                    when everything was still new.
+                </p>
+            </div>
+
+            <div class="chapter reveal">
+                <span>😊</span>
+                <h3>The Smiles</h3>
+                <p>
+                    The little moments that could make an
+                    ordinary day feel special.
+                </p>
+            </div>
+
+            <div class="chapter reveal">
+                <span>🎵</span>
+                <h3>The Songs</h3>
+                <p>
+                    Songs that became connected to memories,
+                    feelings and moments.
+                </p>
+            </div>
+
+            <div class="chapter reveal">
+                <span>🌙</span>
+                <h3>The Nights</h3>
+                <p>
+                    Conversations, thoughts and memories
+                    that stayed long after the night ended.
+                </p>
+            </div>
+
+            <div class="chapter reveal">
+                <span>📸</span>
+                <h3>The Memories</h3>
+                <p>
+                    Small moments captured somewhere
+                    between yesterday and forever.
+                </p>
+            </div>
+
+            <div class="chapter reveal">
+                <span>💌</span>
+                <h3>The Letters</h3>
+                <p>
+                    Words that were difficult to say,
+                    but easier to write.
+                </p>
+            </div>
+
+            <div class="chapter reveal">
+                <span>🤍</span>
+                <h3>The Promises</h3>
+                <p>
+                    The things worth remembering even
+                    when life takes people in different directions.
+                </p>
+            </div>
+
+            <div class="chapter reveal">
+                <span>✨</span>
+                <h3>The Memories</h3>
+                <p>
+                    The part of the story that time can never
+                    completely erase.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FINAL LETTER ================= -->
+
+    <section>
+
+        <div class="reveal">
+
+            <div class="section-label">
+                One Last Letter
+            </div>
+
+            <h2 class="section-title">
+                To Insiyah ❤️
+            </h2>
+
+        </div>
+
+
+        <div class="letter-box reveal">
+
+            <p>
+                Dear Insiyah,
+            </p>
+
+            <p>
+                If you ever find yourself looking through these pages,
+                I hope you understand why I created them.
+            </p>
+
+            <p>
+                It wasn't just to remember a person.
+                It was to remember a chapter of my life.
+            </p>
+
+            <p>
+                The conversations, the smiles, the songs,
+                the silly moments, the difficult days,
+                and all those tiny things that probably seemed
+                ordinary at the time.
+            </p>
+
+            <p>
+                Somehow, those ordinary moments became some of
+                the most meaningful memories I have.
+            </p>
+
+            <p>
+                Maybe people change.
+                Maybe life changes.
+                Maybe stories don't always continue
+                exactly the way we imagine them.
+            </p>
+
+            <p>
+                But that doesn't make the memories meaningless.
+            </p>
+
+            <p>
+                I will always be grateful for the moments
+                that once made me smile.
+            </p>
+
+            <p>
+                And if there is one thing I hope you remember,
+                it is simply this:
+            </p>
+
+            <p>
+                <strong>
+                    You were an important chapter of my story.
+                    And some chapters deserve to be remembered
+                    even after the book is closed.
+                </strong>
+            </p>
+
+            <div class="signature">
+                — Taher
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUOTE ================= -->
+
+    <section class="quote-section">
+
+        <div class="quote reveal">
+
+            <div class="quote-symbol">
+                “
+            </div>
+
+            <h2>
+                Maybe forever doesn't always mean
+                staying together.
+                Sometimes it means carrying
+                the memories forever.
+            </h2>
+
+            <p>
+                SOME MEMORIES BECOME PART OF WHO WE ARE
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FINAL MESSAGE ================= -->
+
+    <section class="final-section">
+
+        <div class="final-card reveal">
+
+            <div class="heart">
+                💗
+            </div>
+
+            <h2>
+                This Is Not Goodbye.
+            </h2>
+
+            <p>
+                This is simply the last page of a website
+                created to hold a collection of memories.
+                Whatever happens beyond these pages,
+                the moments that inspired them will always
+                have their own little place in the story.
+            </p>
+
+            <a href="index.html" class="home-btn">
+                🏠 Back To The Beginning
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            Made with <span>❤️</span> by Taher
+        </p>
+
+        <p style="margin-top: 8px;">
+            Me & Insiyah — Our Memories
+        </p>
+
+        <p style="margin-top: 18px; opacity: 0.6;">
+            The End... or simply another memory.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* Reveal elements while scrolling */
+
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+
+
+        /* Floating hearts */
+
+        function createHeart() {
+
+            const heart = document.createElement("div");
+
+            heart.className = "floating-heart";
+
+            const hearts = ["❤️", "💗", "💖", "💕", "🤍"];
+
+            heart.innerHTML =
+                hearts[Math.floor(Math.random() * hearts.length)];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.animationDuration =
+                (7 + Math.random() * 7) + "s";
+
+            heart.style.fontSize =
+                (10 + Math.random() * 12) + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 15000);
+        }
+
+
+        setInterval(createHeart, 1500);
+
+
+        /* Smooth button transition */
+
+        document.querySelector(".home-btn").addEventListener("click", function () {
+
+            this.innerHTML = "Opening Our Story... ❤️";
+
+        });
+
+    </script>
+
+</body>
+</html>

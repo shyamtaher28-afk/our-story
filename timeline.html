@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Timeline ❤️ | Me & Insiyah</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #100016, #32083d, #17001f);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(16, 0, 22, 0.75);
+            backdrop-filter: blur(15px);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ff8ee7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff8ee7;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            padding: 120px 20px 70px;
+
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .small-title {
+            color: #ffb7f1;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 95px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #ff8ee7;
+        }
+
+        .hero p {
+            color: #decde0;
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 680px;
+            margin: auto;
+        }
+
+        .start-btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 14px 30px;
+
+            border: 1px solid #ff8ee7;
+            border-radius: 50px;
+
+            color: white;
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .start-btn:hover {
+            background: #ff8ee7;
+            color: #210025;
+            transform: translateY(-3px);
+        }
+
+        /* ================= TIMELINE SECTION ================= */
+
+        .timeline-section {
+            padding: 80px 8% 120px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-heading h2 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 span {
+            color: #ff8ee7;
+        }
+
+        .section-heading p {
+            color: #bfaec1;
+        }
+
+        /* ================= TIMELINE ================= */
+
+        .timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* Center line */
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            bottom: 0;
+            left: 50%;
+
+            width: 3px;
+
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                #ff72d2,
+                #ff8ee7,
+                #ff72d2,
+                transparent
+            );
+
+            transform: translateX(-50%);
+        }
+
+        /* ================= TIMELINE ITEM ================= */
+
+        .timeline-item {
+            width: 50%;
+            position: relative;
+            padding: 20px 50px;
+            margin-bottom: 70px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        /* ================= TIMELINE DOT ================= */
+
+        .timeline-dot {
+            position: absolute;
+
+            top: 38px;
+
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            background: #210029;
+            border: 2px solid #ff8ee7;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+
+            box-shadow:
+                0 0 15px rgba(255, 142, 231, 0.4),
+                0 0 35px rgba(255, 114, 210, 0.15);
+
+            z-index: 5;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -24px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -24px;
+        }
+
+        /* ================= MEMORY CARD ================= */
+
+        .memory-card {
+            padding: 30px;
+
+            background: rgba(255, 255, 255, 0.06);
+
+            border: 1px solid rgba(255, 142, 231, 0.2);
+
+            border-radius: 22px;
+
+            backdrop-filter: blur(10px);
+
+            transition: 0.4s;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #ff8ee7;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                0 0 25px rgba(255, 114, 210, 0.1);
+        }
+
+        .memory-date {
+            display: inline-block;
+
+            color: #ff8ee7;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+        .memory-card h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .memory-card p {
+            color: #d1c2d3;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* ================= MEMORY IMAGE ================= */
+
+        .memory-image {
+            width: 100%;
+            height: 190px;
+
+            margin-bottom: 20px;
+
+            border-radius: 15px;
+
+            background: linear-gradient(
+                135deg,
+                #3b0a45,
+                #19001f
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #9e8da0;
+            font-size: 15px;
+
+            border: 1px dashed rgba(255, 142, 231, 0.25);
+
+            overflow: hidden;
+        }
+
+        .memory-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ================= READ BUTTON ================= */
+
+        .read-btn {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 10px 22px;
+
+            border: 1px solid rgba(255, 142, 231, 0.5);
+
+            border-radius: 30px;
+
+            color: #ffb7f1;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .read-btn:hover {
+            background: #ff8ee7;
+            color: #210025;
+        }
+
+        /* ================= END SECTION ================= */
+
+        .ending {
+            text-align: center;
+            padding: 100px 20px 130px;
+        }
+
+        .ending-heart {
+            font-size: 55px;
+            margin-bottom: 25px;
+
+            animation: heartbeat 2s infinite;
+        }
+
+        .ending h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .ending h2 span {
+            color: #ff8ee7;
+        }
+
+        .ending p {
+            max-width: 650px;
+            margin: auto;
+
+            color: #c9b8ca;
+
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        /* ================= FLOATING HEARTS ================= */
+
+        .floating-heart {
+            position: fixed;
+
+            opacity: 0.2;
+
+            font-size: 20px;
+
+            pointer-events: none;
+
+            animation: float 7s infinite ease-in-out;
+
+            z-index: 0;
+        }
+
+        .heart1 {
+            left: 8%;
+            top: 30%;
+        }
+
+        .heart2 {
+            right: 10%;
+            top: 50%;
+            animation-delay: 2s;
+        }
+
+        .heart3 {
+            left: 15%;
+            bottom: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            color: #a999aa;
+        }
+
+        footer span {
+            color: #ff8ee7;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .hero {
+                min-height: 65vh;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
+            /* Move timeline to left */
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+
+                text-align: left;
+
+                padding-left: 55px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: -9px;
+                right: auto;
+            }
+
+            .memory-card {
+                padding: 23px;
+            }
+
+            .memory-card h3 {
+                font-size: 22px;
+            }
+
+            .memory-image {
+                height: 160px;
+            }
+
+            .ending h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <div class="logo">
+            ❤️ Me & <span>Insiyah</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="our-story.html">Our Story</a>
+
+            <a href="timeline.html">Timeline</a>
+
+            <a href="memories.html">Memories</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= FLOATING HEARTS ================= -->
+
+    <div class="floating-heart heart1">❤️</div>
+
+    <div class="floating-heart heart2">💕</div>
+
+    <div class="floating-heart heart3">💗</div>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                A Journey Through Time
+            </div>
+
+            <h1>
+                Our <span>Timeline</span>
+            </h1>
+
+            <p>
+                Every important moment has a place in our story.
+                Here are the moments that became memories.
+            </p>
+
+            <a href="#timeline" class="start-btn">
+                Begin The Journey ↓
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TIMELINE ================= -->
+
+    <section class="timeline-section" id="timeline">
+
+        <div class="section-heading">
+
+            <h2>
+                Moments That <span>Mattered</span>
+            </h2>
+
+            <p>
+                Add your real memories and dates here.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- ================= MEMORY 1 ================= -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    ❤️
+                </div>
+
+                <div class="memory-card">
+
+                    <div class="memory-image">
+                        📸 Add your first photo here
+                    </div>
+
+                    <div class="memory-date">
+                        THE BEGINNING
+                    </div>
+
+                    <h3>
+                        The First Moment
+                    </h3>
+
+                    <p>
+                        This is the place for the first important
+                        memory of your story. Write what happened,
+                        where it happened, and what you remember
+                        about that moment.
+                    </p>
+
+                    <a href="memories.html" class="read-btn">
+                        Read Memory →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MEMORY 2 ================= -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    💬
+                </div>
+
+                <div class="memory-card">
+
+                    <div class="memory-image">
+                        📸 Add a photo here
+                    </div>
+
+                    <div class="memory-date">
+                        FIRST CONVERSATION
+                    </div>
+
+                    <h3>
+                        When We First Talked
+                    </h3>
+
+                    <p>
+                        Add the story of your first conversation.
+                        What did you talk about?
+                        What made that conversation special?
+                    </p>
+
+                    <a href="memories.html" class="read-btn">
+                        Read Memory →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MEMORY 3 ================= -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    😊
+                </div>
+
+                <div class="memory-card">
+
+                    <div class="memory-image">
+                        📸 Add a photo here
+                    </div>
+
+                    <div class="memory-date">
+                        A SPECIAL DAY
+                    </div>
+
+                    <h3>
+                        A Moment I Remember
+                    </h3>
+
+                    <p>
+                        Add one of those moments that still comes
+                        back to your mind. Describe exactly what
+                        made that day different from the others.
+                    </p>
+
+                    <a href="memories.html" class="read-btn">
+                        Read Memory →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MEMORY 4 ================= -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    💕
+                </div>
+
+                <div class="memory-card">
+
+                    <div class="memory-image">
+                        📸 Add a photo here
+                    </div>
+
+                    <div class="memory-date">
+                        A BEAUTIFUL MEMORY
+                    </div>
+
+                    <h3>
+                        One Of My Favorite Memories
+                    </h3>
+
+                    <p>
+                        This section can contain one of your
+                        favorite memories. Add the real story,
+                        the date, and anything you never want
+                        to forget.
+                    </p>
+
+                    <a href="memories.html" class="read-btn">
+                        Read Memory →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MEMORY 5 ================= -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    ✨
+                </div>
+
+                <div class="memory-card">
+
+                    <div class="memory-image">
+                        📸 Add a photo here
+                    </div>
+
+                    <div class="memory-date">
+                        ANOTHER CHAPTER
+                    </div>
+
+                    <h3>
+                        Another Part Of Our Story
+                    </h3>
+
+                    <p>
+                        Add another important event here.
+                        The timeline can contain as many memories
+                        as you want.
+                    </p>
+
+                    <a href="memories.html" class="read-btn">
+                        Read Memory →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MEMORY 6 ================= -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    🌙
+                </div>
+
+                <div class="memory-card">
+
+                    <div class="memory-image">
+                        📸 Add a photo here
+                    </div>
+
+                    <div class="memory-date">
+                        TODAY
+                    </div>
+
+                    <h3>
+                        Where The Story Stands
+                    </h3>
+
+                    <p>
+                        This can be the final entry of the current
+                        timeline. Write about what these memories
+                        mean to you today.
+                    </p>
+
+                    <a href="memories.html" class="read-btn">
+                        Read Memory →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ENDING ================= -->
+
+    <section class="ending">
+
+        <div class="ending-heart">
+            ❤️
+        </div>
+
+        <h2>
+            Every Memory Has A <span>Story</span>
+        </h2>
+
+        <p>
+            The dates may simply be numbers on a calendar,
+            but the moments connected to them can mean
+            something much more.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with ❤️ by <span>Taher</span>
+
+        <br><br>
+
+        Me & Insiyah — Our Memories
+
+    </footer>
+
+
+    <script>
+
+        // Timeline loaded message
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            console.log("Timeline loaded ❤️");
+
+        });
+
+    </script>
+
+</body>
+</html>

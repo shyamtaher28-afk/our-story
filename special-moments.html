@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Special Moments ❤️ | Me & Insiyah</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #100016, #35083f, #17001f);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 0, 15, 0.88);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff8fcf;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 22px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #eee;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #ff75c8;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 55vh;
+            padding: 150px 20px 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 75px);
+            margin-bottom: 15px;
+            background: linear-gradient(
+                90deg,
+                #ff9bd6,
+                white,
+                #d28cff
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 680px;
+            color: #d8c9db;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .heart-line {
+            margin-top: 25px;
+            color: #ff70c5;
+            letter-spacing: 10px;
+            font-size: 20px;
+        }
+
+
+        /* ================= SECTION ================= */
+
+        .moments-section {
+            padding: 50px 7% 100px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            color: #ff9bd6;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: #cdbed0;
+        }
+
+
+        /* ================= MOMENT GRID ================= */
+
+        .moments-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+
+        /* ================= MOMENT CARD ================= */
+
+        .moment-card {
+            position: relative;
+            min-height: 300px;
+            padding: 30px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            overflow: hidden;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .moment-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 119, 201, 0.5);
+            box-shadow:
+                0 20px 45px rgba(255, 0, 170, 0.15);
+        }
+
+        .moment-card::before {
+            content: "";
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: rgba(255, 91, 184, 0.10);
+            top: -70px;
+            right: -70px;
+        }
+
+        .number {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 55px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.04);
+        }
+
+        .moment-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            background: linear-gradient(
+                135deg,
+                #ff5db7,
+                #8232a9
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            margin-bottom: 25px;
+            box-shadow:
+                0 10px 25px rgba(255, 0, 170, 0.18);
+        }
+
+        .moment-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .moment-card p {
+            color: #cfc1d2;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .date {
+            display: inline-block;
+            margin-top: 20px;
+            color: #ff8fcf;
+            font-size: 12px;
+        }
+
+
+        /* ================= FEATURED MEMORY ================= */
+
+        .featured {
+            max-width: 1000px;
+            margin: 30px auto 100px;
+            padding: 55px;
+            text-align: center;
+            border-radius: 30px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 91, 184, 0.12),
+                    rgba(111, 40, 139, 0.16)
+                );
+            border: 1px solid rgba(255, 145, 216, 0.18);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .featured .big-heart {
+            font-size: 55px;
+            margin-bottom: 20px;
+            animation: heartbeat 1.8s infinite;
+        }
+
+        .featured h2 {
+            font-size: 32px;
+            color: #ff9bd6;
+            margin-bottom: 20px;
+        }
+
+        .featured p {
+            max-width: 700px;
+            margin: auto;
+            color: #ded3e0;
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+
+        /* ================= MEMORY COUNTER ================= */
+
+        .counter-section {
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.18);
+            text-align: center;
+        }
+
+        .counter-section h2 {
+            color: #ff9bd6;
+            margin-bottom: 35px;
+            font-size: 32px;
+        }
+
+        .counter-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .counter-box {
+            width: 180px;
+            padding: 25px 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .counter-box .number-value {
+            font-size: 35px;
+            font-weight: bold;
+            color: #ff7dc8;
+        }
+
+        .counter-box span {
+            display: block;
+            margin-top: 8px;
+            color: #cdbed0;
+            font-size: 13px;
+        }
+
+
+        /* ================= QUOTE ================= */
+
+        .quote-section {
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .quote {
+            max-width: 750px;
+            margin: auto;
+            font-size: 25px;
+            line-height: 1.8;
+            font-style: italic;
+            color: #eee;
+        }
+
+        .quote span {
+            display: block;
+            margin-top: 20px;
+            color: #ff8fcf;
+            font-size: 14px;
+            font-style: normal;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        footer .heart {
+            color: #ff62bd;
+        }
+
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
+
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+
+            .moments-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                position: relative;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .moments-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured {
+                padding: 35px 22px;
+            }
+
+            .featured h2 {
+                font-size: 27px;
+            }
+
+            .quote {
+                font-size: 20px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            Me <span>&</span> Insiyah ❤️
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="our-story.html">
+                    Our Story
+                </a>
+            </li>
+
+            <li>
+                <a href="timeline.html">
+                    Timeline
+                </a>
+            </li>
+
+            <li>
+                <a href="memories.html">
+                    Memories
+                </a>
+            </li>
+
+            <li>
+                <a href="gallery.html">
+                    Gallery
+                </a>
+            </li>
+
+            <li>
+                <a href="letters.html">
+                    Letters
+                </a>
+            </li>
+
+            <li>
+                <a href="songs.html">
+                    Songs
+                </a>
+            </li>
+
+            <li>
+                <a href="special-moments.html"
+                   class="active">
+                    Moments
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            ✨
+        </div>
+
+        <h1>Special Moments</h1>
+
+        <p>
+            Not every beautiful memory needs a photograph.
+            Some moments stay inside your heart forever.
+        </p>
+
+        <div class="heart-line">
+            ♡ ✦ ♡ ✦ ♡
+        </div>
+
+    </section>
+
+
+    <!-- ================= MOMENTS ================= -->
+
+    <section class="moments-section">
+
+        <div class="section-heading">
+
+            <h2>The Little Things ❤️</h2>
+
+            <p>
+                The moments that became unforgettable.
+            </p>
+
+        </div>
+
+
+        <div class="moments-grid">
+
+
+            <!-- MOMENT 1 -->
+
+            <div class="moment-card">
+
+                <div class="number">
+                    01
+                </div>
+
+                <div class="moment-icon">
+                    💬
+                </div>
+
+                <h3>
+                    Our First Conversation
+                </h3>
+
+                <p>
+                    The beginning of a story I didn't know
+                    would become such an important part
+                    of my life.
+                </p>
+
+                <span class="date">
+                    A moment worth remembering
+                </span>
+
+            </div>
+
+
+            <!-- MOMENT 2 -->
+
+            <div class="moment-card">
+
+                <div class="number">
+                    02
+                </div>
+
+                <div class="moment-icon">
+                    😊
+                </div>
+
+                <h3>
+                    Your Smile
+                </h3>
+
+                <p>
+                    There was something about your smile
+                    that could make an ordinary moment
+                    feel completely different.
+                </p>
+
+                <span class="date">
+                    One smile. A thousand memories.
+                </span>
+
+            </div>
+
+
+            <!-- MOMENT 3 -->
+
+            <div class="moment-card">
+
+                <div class="number">
+                    03
+                </div>
+
+                <div class="moment-icon">
+                    🌙
+                </div>
+
+                <h3>
+                    Late Night Talks
+                </h3>
+
+                <p>
+                    Those conversations where time somehow
+                    disappeared and neither of us cared
+                    what the clock said.
+                </p>
+
+                <span class="date">
+                    After midnight memories
+                </span>
+
+            </div>
+
+
+            <!-- MOMENT 4 -->
+
+            <div class="moment-card">
+
+                <div class="number">
+                    04
+                </div>
+
+                <div class="moment-icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    When I Realized
+                </h3>
+
+                <p>
+                    Somewhere between all the conversations
+                    and little moments, I realized that
+                    you weren't just another person to me.
+                </p>
+
+                <span class="date">
+                    A feeling I couldn't explain
+                </span>
+
+            </div>
+
+
+            <!-- MOMENT 5 -->
+
+            <div class="moment-card">
+
+                <div class="number">
+                    05
+                </div>
+
+                <div class="moment-icon">
+                    😂
+                </div>
+
+                <h3>
+                    The Funny Moments
+                </h3>
+
+                <p>
+                    The random jokes, silly conversations,
+                    laughter and those moments that made
+                    absolutely no sense to anyone else.
+                </p>
+
+                <span class="date">
+                    Our kind of crazy
+                </span>
+
+            </div>
+
+
+            <!-- MOMENT 6 -->
+
+            <div class="moment-card">
+
+                <div class="number">
+                    06
+                </div>
+
+                <div class="moment-icon">
+                    🫶
+                </div>
+
+                <h3>
+                    The Quiet Moments
+                </h3>
+
+                <p>
+                    Sometimes we didn't need anything
+                    special. Just knowing you were there
+                    was enough.
+                </p>
+
+                <span class="date">
+                    Silence that felt comfortable
+                </span>
+
+            </div>
+
+
+            <!-- MOMENT 7 -->
+
+            <div class="moment-card">
+
+                <div class="number">
+                    07
+                </div>
+
+                <div class="moment-icon">
+                    🌧️
+                </div>
+
+                <h3>
+                    Difficult Days
+                </h3>
+
+                <p>
+                    Not every memory was perfect.
+                    Some moments were difficult, but
+                    they still became part of our story.
+                </p>
+
+                <span class="date">
+                    Every story has its storms
+                </span>
+
+            </div>
+
+
+            <!-- MOMENT 8 -->
+
+            <div class="moment-card">
+
+                <div class="number">
+                    08
+                </div>
+
+                <div class="moment-icon">
+                    📸
+                </div>
+
+                <h3>
+                    The Memories We Kept
+                </h3>
+
+                <p>
+                    Pictures, messages, conversations and
+                    tiny details that became pieces of a
+                    much bigger memory.
+                </p>
+
+                <span class="date">
+                    Little pieces of us
+                </span>
+
+            </div>
+
+
+            <!-- MOMENT 9 -->
+
+            <div class="moment-card">
+
+                <div class="number">
+                    09
+                </div>
+
+                <div class="moment-icon">
+                    💭
+                </div>
+
+                <h3>
+                    The Moments I Still Remember
+                </h3>
+
+                <p>
+                    Some memories don't disappear just
+                    because time passes. They simply become
+                    quieter.
+                </p>
+
+                <span class="date">
+                    Still somewhere in my heart
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURED MEMORY ================= -->
+
+    <section class="featured">
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <h2>
+            My Favorite Part Of Our Story
+        </h2>
+
+        <p>
+
+            It wasn't one particular day.
+
+            It was all the little things.
+
+            The conversations, the laughter,
+            the waiting for a message,
+            the random moments,
+            the smiles,
+            and even the difficult days.
+
+            Somehow, all of those small pieces
+            became a memory that means something
+            to me.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= COUNTER ================= -->
+
+    <section class="counter-section">
+
+        <h2>
+            Some Numbers From Our Story
+        </h2>
+
+        <div class="counter-container">
+
+            <div class="counter-box">
+
+                <div class="number-value"
+                     data-target="100">
+                    0
+                </div>
+
+                <span>
+                    Little Memories
+                </span>
+
+            </div>
+
+
+            <div class="counter-box">
+
+                <div class="number-value"
+                     data-target="1000">
+                    0
+                </div>
+
+                <span>
+                    Conversations
+                </span>
+
+            </div>
+
+
+            <div class="counter-box">
+
+                <div class="number-value"
+                     data-target="1">
+                    0
+                </div>
+
+                <span>
+                    Special Person
+                </span>
+
+            </div>
+
+
+            <div class="counter-box">
+
+                <div class="number-value"
+                     data-target="∞">
+                    0
+                </div>
+
+                <span>
+                    Memories
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUOTE ================= -->
+
+    <section class="quote-section">
+
+        <div class="quote">
+
+            "Some moments last only a few seconds,
+            but the memory of them can last forever."
+
+            <span>
+                — Me & Insiyah ❤️
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with
+        <span class="heart">❤️</span>
+        by Taher
+
+        <br><br>
+
+        Me & Insiyah — Our Memories.
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* ================= COUNTER ANIMATION ================= */
+
+        const counters =
+            document.querySelectorAll(".number-value");
+
+
+        counters.forEach(counter => {
+
+            const target =
+                counter.getAttribute("data-target");
+
+
+            if (target === "∞") {
+
+                counter.innerText = "∞";
+
+                return;
+
+            }
+
+
+            let current = 0;
+
+            const targetNumber =
+                parseInt(target);
+
+
+            const increment =
+                Math.max(
+                    1,
+                    Math.ceil(targetNumber / 60)
+                );
+
+
+            const updateCounter = () => {
+
+                current += increment;
+
+
+                if (current >= targetNumber) {
+
+                    counter.innerText =
+                        targetNumber;
+
+                } else {
+
+                    counter.innerText =
+                        current;
+
+                    setTimeout(
+                        updateCounter,
+                        30
+                    );
+
+                }
+
+            };
+
+
+            updateCounter();
+
+        });
+
+
+        /* ================= CARD CLICK EFFECT ================= */
+
+        const cards =
+            document.querySelectorAll(".moment-card");
+
+
+        cards.forEach(card => {
+
+            card.addEventListener(
+                "click",
+                function () {
+
+                    this.style.transform =
+                        "scale(1.02)";
+
+                    setTimeout(() => {
+
+                        this.style.transform =
+                            "";
+
+                    }, 250);
+
+                }
+            );
+
+        });
+
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Our Memories ❤️ | Me & Insiyah</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at top,
+                    #52104f,
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0d0013,
+                    #2d0638,
+                    #120018
+                );
+
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 18px 6%;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            background:
+                rgba(10, 0, 15, 0.88);
+
+            backdrop-filter:
+                blur(14px);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff8fcf;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+
+            list-style: none;
+
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+
+            color: #eee;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #ff75c8;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+
+            min-height: 75vh;
+
+            padding:
+                150px 20px 80px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .search-icon {
+
+            font-size: 75px;
+
+            margin-bottom: 25px;
+
+            animation:
+                float 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+
+            font-size:
+                clamp(48px, 8vw, 85px);
+
+            margin-bottom: 15px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff91d0,
+                    white,
+                    #d391ff
+                );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero h2 {
+
+            color: #ffb6df;
+
+            font-size: 21px;
+
+            font-weight: 400;
+
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+
+            max-width: 750px;
+
+            color: #d8c9dc;
+
+            line-height: 1.9;
+
+            font-size: 17px;
+        }
+
+        .scroll {
+
+            margin-top: 40px;
+
+            color: #ff8dce;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+
+            animation:
+                bounce 2s infinite;
+        }
+
+
+        /* ================= SEARCH SECTION ================= */
+
+        .search-section {
+
+            padding:
+                70px 20px 120px;
+
+            text-align: center;
+        }
+
+        .search-container {
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+        .search-title {
+
+            color: #ff9bd6;
+
+            font-size: 38px;
+
+            margin-bottom: 12px;
+        }
+
+        .search-subtitle {
+
+            color: #cdbed0;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* ================= SEARCH BAR ================= */
+
+        .search-box {
+
+            display: flex;
+
+            max-width: 750px;
+
+            margin: auto;
+
+            padding: 8px;
+
+            border-radius: 60px;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            backdrop-filter:
+                blur(15px);
+
+            box-shadow:
+                0 15px 50px
+                rgba(0,0,0,0.2);
+        }
+
+        #searchInput {
+
+            flex: 1;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            color: white;
+
+            padding:
+                15px 20px;
+
+            font-size: 16px;
+        }
+
+        #searchInput::placeholder {
+
+            color: #a99aae;
+        }
+
+        .search-button {
+
+            border: none;
+
+            outline: none;
+
+            cursor: pointer;
+
+            padding:
+                14px 25px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff5db7,
+                    #9133bb
+                );
+
+            color: white;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        .search-button:hover {
+
+            transform:
+                scale(1.05);
+
+            box-shadow:
+                0 8px 25px
+                rgba(255,0,170,0.3);
+        }
+
+
+        /* ================= SUGGESTIONS ================= */
+
+        .suggestions {
+
+            margin-top: 25px;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .suggestion {
+
+            padding:
+                8px 16px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            color: #cfc1d2;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .suggestion:hover {
+
+            color: white;
+
+            border-color:
+                rgba(255,125,205,0.5);
+
+            background:
+                rgba(255,91,184,0.1);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* ================= RESULTS ================= */
+
+        .results {
+
+            margin-top: 60px;
+
+            text-align: left;
+        }
+
+        .result-heading {
+
+            color: #ffb0dd;
+
+            font-size: 20px;
+
+            margin-bottom: 25px;
+
+            text-align: center;
+        }
+
+        #resultCount {
+
+            color: #9f8da3;
+
+            font-size: 13px;
+
+            font-weight: normal;
+        }
+
+
+        .results-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+
+        .result-card {
+
+            padding: 28px;
+
+            border-radius: 23px;
+
+            background:
+                rgba(255,255,255,0.055);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.09);
+
+            backdrop-filter:
+                blur(15px);
+
+            transition: 0.35s;
+
+            animation:
+                fadeUp 0.5s ease;
+        }
+
+        .result-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(255,125,205,0.45);
+
+            box-shadow:
+                0 15px 40px
+                rgba(255,0,170,0.12);
+        }
+
+        .result-icon {
+
+            font-size: 35px;
+
+            margin-bottom: 15px;
+        }
+
+        .result-card h3 {
+
+            color: white;
+
+            font-size: 21px;
+
+            margin-bottom: 10px;
+        }
+
+        .result-card p {
+
+            color: #cfc1d2;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+
+            margin-bottom: 18px;
+        }
+
+        .result-link {
+
+            display: inline-block;
+
+            color: #ff91d0;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .result-link:hover {
+
+            color: white;
+
+            transform:
+                translateX(5px);
+        }
+
+
+        /* ================= NO RESULTS ================= */
+
+        .no-results {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 50px 20px;
+        }
+
+        .no-results-icon {
+
+            font-size: 55px;
+
+            margin-bottom: 20px;
+        }
+
+        .no-results h3 {
+
+            color: #ff9bd6;
+
+            font-size: 26px;
+
+            margin-bottom: 12px;
+        }
+
+        .no-results p {
+
+            color: #cdbed0;
+
+            line-height: 1.8;
+        }
+
+
+        /* ================= ALL MEMORIES ================= */
+
+        .all-section {
+
+            padding:
+                100px 20px;
+
+            background:
+                rgba(0,0,0,0.15);
+
+            text-align: center;
+        }
+
+        .all-section h2 {
+
+            color: #ff9bd6;
+
+            font-size: 36px;
+
+            margin-bottom: 15px;
+        }
+
+        .all-section p {
+
+            color: #cdbed0;
+
+            margin-bottom: 40px;
+        }
+
+        .quick-links {
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .quick-link {
+
+            padding: 25px 15px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            text-decoration: none;
+
+            color: #ddd;
+
+            transition: 0.3s;
+        }
+
+        .quick-link span {
+
+            display: block;
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .quick-link:hover {
+
+            transform:
+                translateY(-6px);
+
+            color: white;
+
+            border-color:
+                rgba(255,125,205,0.4);
+        }
+
+
+        /* ================= FINAL ================= */
+
+        .final-section {
+
+            min-height: 65vh;
+
+            padding:
+                100px 20px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .final-box {
+
+            max-width: 800px;
+        }
+
+        .final-heart {
+
+            font-size: 75px;
+
+            animation:
+                heartbeat 2s infinite;
+        }
+
+        .final-box h2 {
+
+            font-size:
+                clamp(38px, 6vw, 60px);
+
+            margin: 25px 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff91d0,
+                    white,
+                    #d391ff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .final-box p {
+
+            color: #d8cadd;
+
+            line-height: 2;
+
+            font-size: 17px;
+        }
+
+        .home-button {
+
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding:
+                14px 32px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff5db7,
+                    #9133bb
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .home-button:hover {
+
+            transform:
+                scale(1.06);
+
+            box-shadow:
+                0 10px 30px
+                rgba(255,0,170,0.25);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            text-align: center;
+
+            padding:
+                40px 20px;
+
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+        footer .heart {
+
+            color: #ff62bd;
+        }
+
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes float {
+
+            0%, 100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px);
+            }
+
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform:
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    scale(1.15);
+            }
+
+        }
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(8px);
+            }
+
+        }
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 950px) {
+
+            .quick-links {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .results-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            nav {
+
+                position: relative;
+
+                flex-direction:
+                    column;
+
+                gap: 15px;
+            }
+
+            nav ul {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+            }
+
+            .hero {
+
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+
+                font-size: 48px;
+            }
+
+            .hero p {
+
+                font-size: 15px;
+            }
+
+            .search-box {
+
+                flex-direction:
+                    column;
+
+                background: transparent;
+
+                border: none;
+
+                box-shadow: none;
+
+                padding: 0;
+            }
+
+            #searchInput {
+
+                width: 100%;
+
+                padding:
+                    16px 20px;
+
+                border-radius: 50px;
+
+                background:
+                    rgba(255,255,255,0.06);
+
+                border:
+                    1px solid
+                    rgba(255,255,255,0.1);
+
+                margin-bottom: 12px;
+            }
+
+            .search-button {
+
+                width: 100%;
+            }
+
+            .quick-links {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            Me <span>&</span> Insiyah ❤️
+
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="our-story.html">
+                    Our Story
+                </a>
+            </li>
+
+            <li>
+                <a href="timeline.html">
+                    Timeline
+                </a>
+            </li>
+
+            <li>
+                <a href="memories.html">
+                    Memories
+                </a>
+            </li>
+
+            <li>
+                <a href="gallery.html">
+                    Gallery
+                </a>
+            </li>
+
+            <li>
+                <a href="letters.html">
+                    Letters
+                </a>
+            </li>
+
+            <li>
+                <a href="songs.html">
+                    Songs
+                </a>
+            </li>
+
+            <li>
+                <a href="special-moments.html">
+                    Moments
+                </a>
+            </li>
+
+            <li>
+                <a href="future.html">
+                    Future
+                </a>
+            </li>
+
+            <li>
+                <a href="thought.html">
+                    Thoughts
+                </a>
+            </li>
+
+            <li>
+                <a href="promises.html">
+                    Promises
+                </a>
+            </li>
+
+            <li>
+                <a href="memory-box.html">
+                    Memory Box
+                </a>
+            </li>
+
+            <li>
+                <a href="search.html"
+                   class="active">
+                    Search
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="search-icon">
+            🔍
+        </div>
+
+        <h1>
+            Search Our Memories
+        </h1>
+
+        <h2>
+            Every Memory Has A Story
+        </h2>
+
+        <p>
+
+            Looking for something?
+
+            Search through our little collection
+            of stories, memories, letters, songs,
+            thoughts and moments.
+
+            Maybe the memory you're looking for
+            is waiting somewhere inside.
+
+        </p>
+
+        <div class="scroll">
+            START SEARCHING
+        </div>
+
+    </section>
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <section class="search-section">
+
+        <div class="search-container">
+
+            <h2 class="search-title">
+                What Are You Looking For? ❤️
+            </h2>
+
+            <p class="search-subtitle">
+                Try searching for a word, feeling or memory.
+            </p>
+
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Try: smile, songs, letters, memories..."
+                    autocomplete="off"
+                >
+
+                <button
+                    class="search-button"
+                    onclick="performSearch()">
+
+                    🔍 Search
+
+                </button>
+
+            </div>
+
+
+            <!-- SUGGESTIONS -->
+
+            <div class="suggestions">
+
+                <span
+                    class="suggestion"
+                    onclick="searchWord('smile')">
+
+                    😊 Smile
+
+                </span>
+
+                <span
+                    class="suggestion"
+                    onclick="searchWord('memories')">
+
+                    💭 Memories
+
+                </span>
+
+                <span
+                    class="suggestion"
+                    onclick="searchWord('songs')">
+
+                    🎵 Songs
+
+                </span>
+
+                <span
+                    class="suggestion"
+                    onclick="searchWord('letters')">
+
+                    💌 Letters
+
+                </span>
+
+                <span
+                    class="suggestion"
+                    onclick="searchWord('future')">
+
+                    ✨ Future
+
+                </span>
+
+                <span
+                    class="suggestion"
+                    onclick="searchWord('thoughts')">
+
+                    💭 Thoughts
+
+                </span>
+
+                <span
+                    class="suggestion"
+                    onclick="searchWord('love')">
+
+                    ❤️ Love
+
+                </span>
+
+            </div>
+
+
+            <!-- RESULTS -->
+
+            <div class="results">
+
+                <div class="result-heading">
+
+                    Search Results
+
+                    <span id="resultCount">
+                        — 0 results
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="results-grid"
+                    id="resultsGrid">
+
+                </div>
+
+
+                <!-- NO RESULTS -->
+
+                <div
+                    class="no-results"
+                    id="noResults">
+
+                    <div class="no-results-icon">
+                        🥺
+                    </div>
+
+                    <h3>
+                        Memory Not Found
+                    </h3>
+
+                    <p>
+
+                        I couldn't find that memory yet.
+
+                        Try another word like
+                        "smile", "songs", "letters"
+                        or "love".
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUICK LINKS ================= -->
+
+    <section class="all-section">
+
+        <h2>
+            Explore Everything
+        </h2>
+
+        <p>
+            You don't always need to search.
+            Sometimes you can simply wander through the memories.
+        </p>
+
+
+        <div class="quick-links">
+
+
+            <a
+                href="our-story.html"
+                class="quick-link">
+
+                <span>📖</span>
+
+                Our Story
+
+            </a>
+
+
+            <a
+                href="timeline.html"
+                class="quick-link">
+
+                <span>🕰️</span>
+
+                Timeline
+
+            </a>
+
+
+            <a
+                href="memories.html"
+                class="quick-link">
+
+                <span>💭</span>
+
+                Memories
+
+            </a>
+
+
+            <a
+                href="gallery.html"
+                class="quick-link">
+
+                <span>📸</span>
+
+                Gallery
+
+            </a>
+
+
+            <a
+                href="letters.html"
+                class="quick-link">
+
+                <span>💌</span>
+
+                Letters
+
+            </a>
+
+
+            <a
+                href="songs.html"
+                class="quick-link">
+
+                <span>🎵</span>
+
+                Songs
+
+            </a>
+
+
+            <a
+                href="special-moments.html"
+                class="quick-link">
+
+                <span>✨</span>
+
+                Special Moments
+
+            </a>
+
+
+            <a
+                href="future.html"
+                class="quick-link">
+
+                <span>🌅</span>
+
+                Future
+
+            </a>
+
+
+            <a
+                href="thought.html"
+                class="quick-link">
+
+                <span>💭</span>
+
+                Thoughts
+
+            </a>
+
+
+            <a
+                href="promises.html"
+                class="quick-link">
+
+                <span>🤝</span>
+
+                Promises
+
+            </a>
+
+
+            <a
+                href="memory-box.html"
+                class="quick-link">
+
+                <span>📦</span>
+
+                Memory Box
+
+            </a>
+
+
+            <a
+                href="index.html"
+                class="quick-link">
+
+                <span>❤️</span>
+
+                Home
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FINAL ================= -->
+
+    <section class="final-section">
+
+        <div class="final-box">
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+            <h2>
+                Some Memories Find You
+            </h2>
+
+            <p>
+
+                Maybe you came here looking
+                for one particular memory.
+
+                Maybe you found something else.
+
+                Either way, every page here
+                is simply another little piece
+                of the story.
+
+                So take your time.
+
+                Explore.
+
+                Remember.
+
+            </p>
+
+
+            <a
+                href="index.html"
+                class="home-button">
+
+                Back To Our Story
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with
+        <span class="heart">
+            ❤️
+        </span>
+        by Taher
+
+        <br><br>
+
+        Me & Insiyah — Our Memories.
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* ================= MEMORY DATABASE ================= */
+
+        const memories = [
+
+            {
+                title: "Our Story",
+                icon: "📖",
+                description:
+                    "The story of how everything began, the moments we shared and the chapter we created together.",
+                keywords:
+                    "story beginning start relationship love insiyah taher",
+                link: "our-story.html"
+            },
+
+            {
+                title: "Our Timeline",
+                icon: "🕰️",
+                description:
+                    "A journey through the important moments and memories that became part of our story.",
+                keywords:
+                    "timeline dates journey moments time memories",
+                link: "timeline.html"
+            },
+
+            {
+                title: "Our Memories",
+                icon: "💭",
+                description:
+                    "A collection of moments, feelings, conversations and little memories that stayed in my heart.",
+                keywords:
+                    "memories memory moments feelings conversations heart",
+                link: "memories.html"
+            },
+
+            {
+                title: "Our Gallery",
+                icon: "📸",
+                description:
+                    "The visual side of our memories — photographs and moments worth keeping.",
+                keywords:
+                    "gallery photos pictures images photographs memories",
+                link: "gallery.html"
+            },
+
+            {
+                title: "Our Letters",
+                icon: "💌",
+                description:
+                    "Words that were difficult to say aloud, written down and kept safely inside these pages.",
+                keywords:
+                    "letters letter words message writing feelings love apology",
+                link: "letters.html"
+            },
+
+            {
+                title: "Our Songs",
+                icon: "🎵",
+                description:
+                    "Songs connected to memories, moods and moments that became part of our story.",
+                keywords:
+                    "songs music audio playlist song memories feelings",
+                link: "songs.html"
+            },
+
+            {
+                title: "Special Moments",
+                icon: "✨",
+                description:
+                    "The moments that felt different — the little things that became special.",
+                keywords:
+                    "special moments smile funny laughter first conversation memories",
+                link: "special-moments.html"
+            },
+
+            {
+                title: "Our Future",
+                icon: "🌅",
+                description:
+                    "Thoughts about tomorrow, dreams, possibilities and everything life may bring.",
+                keywords:
+                    "future tomorrow dreams goals hope possibilities",
+                link: "future.html"
+            },
+
+            {
+                title: "My Thoughts",
+                icon: "💭",
+                description:
+                    "The thoughts that live quietly inside my mind — things that are sometimes difficult to explain.",
+                keywords:
+                    "thoughts mind feelings thinking night random memories smile",
+                link: "thought.html"
+            },
+
+            {
+                title: "Our Promises",
+                icon: "🤝",
+                description:
+                    "Promises, lessons and words that became meaningful parts of our journey.",
+                keywords:
+                    "promises promise commitment words heart respect memories",
+                link: "promises.html"
+            },
+
+            {
+                title: "Memory Box",
+                icon: "📦",
+                description:
+                    "A little box filled with moments, feelings and memories that deserve to be kept.",
+                keywords:
+                    "memory box memories hidden little things moments chest",
+                link: "memory-box.html"
+            },
+
+            {
+                title: "Love",
+                icon: "❤️",
+                description:
+                    "The feelings, memories and emotions that made this chapter meaningful.",
+                keywords:
+                    "love heart romance romantic feelings insiyah taher",
+                link: "our-story.html"
+            },
+
+            {
+                title: "Your Smile",
+                icon: "😊",
+                description:
+                    "One of those small things that could make an ordinary moment feel different.",
+                keywords:
+                    "smile happiness happy face laugh special moments",
+                link: "special-moments.html"
+            },
+
+            {
+                title: "Late Night Talks",
+                icon: "🌙",
+                description:
+                    "Quiet conversations that somehow became memories worth keeping.",
+                keywords:
+                    "night late talks conversation chatting moon memories",
+                link: "memory-box.html"
+            },
+
+            {
+                title: "Little Things",
+                icon: "🫶",
+                description:
+                    "The tiny details that often become the biggest memories.",
+                keywords:
+                    "little things details small moments memories smile",
+                link: "memory-box.html"
+            }
+
+        ];
+
+
+        /* ================= ELEMENTS ================= */
+
+        const input =
+            document.getElementById(
+                "searchInput"
+            );
+
+        const resultsGrid =
+            document.getElementById(
+                "resultsGrid"
+            );
+
+        const resultCount =
+            document.getElementById(
+                "resultCount"
+            );
+
+        const noResults =
+            document.getElementById(
+                "noResults"
+            );
+
+
+        /* ================= SEARCH ================= */
+
+        function performSearch() {
+
+            const query =
+                input.value
+                    .trim()
+                    .toLowerCase();
+
+
+            if (query === "") {
+
+                showAllResults();
+
+                return;
+
+            }
+
+
+            const filtered =
+                memories.filter(
+                    memory => {
+
+                        const searchable =
+                            (
+                                memory.title +
+                                " " +
+                                memory.description +
+                                " " +
+                                memory.keywords
+                            ).toLowerCase();
+
+                        return searchable.includes(
+                            query
+                        );
+
+                    }
+                );
+
+
+            displayResults(filtered);
+
+        }
+
+
+        /* ================= DISPLAY ================= */
+
+        function displayResults(results) {
+
+            resultsGrid.innerHTML = "";
+
+
+            resultCount.textContent =
+                `— ${results.length} result${results.length !== 1 ? "s" : ""}`;
+
+
+            if (results.length === 0) {
+
+                noResults.style.display =
+                    "block";
+
+                return;
+
+            }
+
+
+            noResults.style.display =
+                "none";
+
+
+            results.forEach(
+                memory => {
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+                    card.className =
+                        "result-card";
+
+
+                    card.innerHTML = `
+
+                        <div class="result-icon">
+                            ${memory.icon}
+                        </div>
+
+                        <h3>
+                            ${memory.title}
+                        </h3>
+
+                        <p>
+                            ${memory.description}
+                        </p>
+
+                        <a
+                            href="${memory.link}"
+                            class="result-link">
+
+                            Open Memory →
+                            
+                        </a>
+
+                    `;
+
+
+                    resultsGrid.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* ================= SHOW ALL ================= */
+
+        function showAllResults() {
+
+            displayResults(
+                memories
+            );
+
+        }
+
+
+        /* ================= SUGGESTION ================= */
+
+        function searchWord(word) {
+
+            input.value =
+                word;
+
+            performSearch();
+
+            document
+                .querySelector(".results")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+        }
+
+
+        /* ================= ENTER KEY ================= */
+
+        input.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key ===
+                    "Enter"
+                ) {
+
+                    performSearch();
+
+                }
+
+            }
+        );
+
+
+        /* ================= INITIAL RESULTS ================= */
+
+        showAllResults();
+
+
+    </script>
+
+</body>
+
+</html>

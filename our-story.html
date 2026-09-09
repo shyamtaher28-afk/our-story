@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Story ❤️ | Me & Insiyah</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #120018, #3b0a45, #18001f);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+
+            background: rgba(18, 0, 24, 0.65);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ff8ee7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff8ee7;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 70px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .small-title {
+            color: #ffb7f1;
+            letter-spacing: 5px;
+            font-size: 15px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 100px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #ff8ee7;
+        }
+
+        .hero p {
+            color: #e6d4e8;
+            font-size: 19px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .scroll-btn {
+            display: inline-block;
+            margin-top: 35px;
+            color: white;
+            text-decoration: none;
+            border: 1px solid #ff8ee7;
+            padding: 13px 28px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .scroll-btn:hover {
+            background: #ff8ee7;
+            color: #210026;
+            transform: translateY(-3px);
+        }
+
+        /* ================= STORY SECTION ================= */
+
+        .story-section {
+            padding: 80px 8%;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2 span {
+            color: #ff8ee7;
+        }
+
+        .section-title p {
+            color: #cdbdce;
+            font-size: 17px;
+        }
+
+        /* ================= TIMELINE ================= */
+
+        .timeline {
+            max-width: 1000px;
+            margin: auto;
+            position: relative;
+        }
+
+        /* Center line */
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                #ff72d2,
+                #ff8ee7,
+                transparent
+            );
+            transform: translateX(-50%);
+        }
+
+        .story-card {
+            width: 50%;
+            padding: 25px 45px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .story-card:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .story-card:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        /* Timeline circle */
+
+        .story-card::after {
+            content: "❤️";
+            position: absolute;
+            top: 35px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #25002d;
+            border: 2px solid #ff8ee7;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+            box-shadow: 0 0 20px rgba(255, 114, 210, 0.5);
+            z-index: 5;
+        }
+
+        .story-card:nth-child(odd)::after {
+            right: -21px;
+        }
+
+        .story-card:nth-child(even)::after {
+            left: -21px;
+        }
+
+        /* Card */
+
+        .card-content {
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 142, 231, 0.2);
+            backdrop-filter: blur(10px);
+
+            transition: 0.4s;
+        }
+
+        .card-content:hover {
+            transform: translateY(-7px);
+            border-color: #ff8ee7;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .date {
+            color: #ff8ee7;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .card-content h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card-content p {
+            color: #d9c9db;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* ================= SPECIAL MESSAGE ================= */
+
+        .special {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .special-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 60px 40px;
+
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 142, 231, 0.25);
+
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .special-box .heart {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .special-box h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .special-box h2 span {
+            color: #ff8ee7;
+        }
+
+        .special-box p {
+            color: #d8c8da;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 35px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: #bcaabd;
+        }
+
+        footer span {
+            color: #ff8ee7;
+        }
+
+        /* ================= FLOATING HEARTS ================= */
+
+        .floating-heart {
+            position: fixed;
+            font-size: 20px;
+            opacity: 0.25;
+            animation: floating 7s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .heart1 {
+            left: 8%;
+            top: 30%;
+        }
+
+        .heart2 {
+            right: 10%;
+            top: 45%;
+            animation-delay: 2s;
+        }
+
+        .heart3 {
+            left: 15%;
+            bottom: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-35px) rotate(10deg);
+            }
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 35px;
+            }
+
+            /* Timeline becomes single column */
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .story-card,
+            .story-card:nth-child(even),
+            .story-card:nth-child(odd) {
+                width: 100%;
+                left: 0;
+                text-align: left;
+                padding-left: 55px;
+                padding-right: 0;
+            }
+
+            .story-card::after,
+            .story-card:nth-child(odd)::after,
+            .story-card:nth-child(even)::after {
+                left: -6px;
+                right: auto;
+            }
+
+            .card-content {
+                padding: 23px;
+            }
+
+            .special-box {
+                padding: 45px 25px;
+            }
+
+            .special-box h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <div class="logo">
+            ❤️ Me & <span>Insiyah</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="memories.html">Memories</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Floating Hearts -->
+
+    <div class="floating-heart heart1">❤️</div>
+    <div class="floating-heart heart2">💕</div>
+    <div class="floating-heart heart3">💗</div>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Our Journey
+            </div>
+
+            <h1>
+                Our <span>Story</span>
+            </h1>
+
+            <p>
+                Every story begins somewhere.
+                Ours began with moments that slowly became
+                memories — memories that deserve to be remembered.
+            </p>
+
+            <a href="#story" class="scroll-btn">
+                Begin Our Story ↓
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STORY ================= -->
+
+    <section class="story-section" id="story">
+
+        <div class="section-title">
+
+            <h2>
+                How It <span>Began</span>
+            </h2>
+
+            <p>
+                The beginning of something that became important to me.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- STORY 1 -->
+
+            <div class="story-card">
+
+                <div class="card-content">
+
+                    <div class="date">
+                        THE BEGINNING
+                    </div>
+
+                    <h3>
+                        The First Moment
+                    </h3>
+
+                    <p>
+                        This is where our story begins.
+                        Add your real memory here — how you first met,
+                        where it happened, or what you remember about
+                        that very first moment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STORY 2 -->
+
+            <div class="story-card">
+
+                <div class="card-content">
+
+                    <div class="date">
+                        FIRST CONVERSATION
+                    </div>
+
+                    <h3>
+                        When We First Talked
+                    </h3>
+
+                    <p>
+                        Write about your first conversation here.
+                        What did you talk about?
+                        What was going through your mind?
+                        What made that moment memorable?
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STORY 3 -->
+
+            <div class="story-card">
+
+                <div class="card-content">
+
+                    <div class="date">
+                        A SPECIAL MOMENT
+                    </div>
+
+                    <h3>
+                        A Memory I Still Remember
+                    </h3>
+
+                    <p>
+                        This section is for one of those moments
+                        that stayed with you.
+                        Replace this text with your own memory.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STORY 4 -->
+
+            <div class="story-card">
+
+                <div class="card-content">
+
+                    <div class="date">
+                        OUR JOURNEY
+                    </div>
+
+                    <h3>
+                        Everything We Experienced
+                    </h3>
+
+                    <p>
+                        Add the moments, conversations, laughter,
+                        difficult days, and everything else that
+                        became part of your journey together.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STORY 5 -->
+
+            <div class="story-card">
+
+                <div class="card-content">
+
+                    <div class="date">
+                        TODAY
+                    </div>
+
+                    <h3>
+                        The Story Continues...
+                    </h3>
+
+                    <p>
+                        Some stories don't have to be defined by
+                        an ending. This is where you can write
+                        what these memories mean to you today.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SPECIAL MESSAGE ================= -->
+
+    <section class="special">
+
+        <div class="special-box">
+
+            <div class="heart">
+                ❤️
+            </div>
+
+            <h2>
+                Some Memories Are <span>Forever</span>
+            </h2>
+
+            <p>
+                People may come and go, days may change,
+                and life may take unexpected turns.
+                But the moments that truly meant something
+                can remain a part of our story.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with ❤️ by <span>Taher</span>
+
+        <br><br>
+
+        Me & Insiyah — Our Memories
+
+    </footer>
+
+
+    <script>
+
+        // Simple page-load animation
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            console.log("Our Story page loaded ❤️");
+
+        });
+
+    </script>
+
+</body>
+</html>

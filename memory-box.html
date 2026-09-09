@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Box ❤️ | Me & Insiyah</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at top,
+                    #52104f,
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0d0013,
+                    #2d0638,
+                    #120018
+                );
+
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 18px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background:
+                rgba(10,0,15,0.88);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+
+            color: #ff8fcf;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+
+            list-style: none;
+
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+
+            color: #eee;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #ff75c8;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+
+            min-height: 78vh;
+
+            padding:
+                150px 20px 80px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .box-icon {
+
+            font-size: 75px;
+
+            margin-bottom: 25px;
+
+            animation:
+                float 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+
+            font-size:
+                clamp(48px, 8vw, 85px);
+
+            margin-bottom: 15px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff91d0,
+                    white,
+                    #d391ff
+                );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero h2 {
+
+            color: #ffb6df;
+
+            font-size: 21px;
+
+            font-weight: 400;
+
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+
+            max-width: 750px;
+
+            color: #d8c9dc;
+
+            line-height: 1.9;
+
+            font-size: 17px;
+        }
+
+        .scroll {
+
+            margin-top: 40px;
+
+            color: #ff8dce;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+
+            animation:
+                bounce 2s infinite;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+
+            padding: 90px 20px;
+
+            text-align: center;
+        }
+
+        .intro-box {
+
+            max-width: 820px;
+
+            margin: auto;
+        }
+
+        .intro h2 {
+
+            color: #ff9bd6;
+
+            font-size: 38px;
+
+            margin-bottom: 25px;
+        }
+
+        .intro p {
+
+            color: #d8cadd;
+
+            line-height: 2;
+
+            font-size: 16px;
+        }
+
+
+        /* ================= MEMORY BOX ================= */
+
+        .box-section {
+
+            padding:
+                70px 7% 120px;
+
+            text-align: center;
+        }
+
+        .section-title {
+
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+
+            color: #ff9bd6;
+
+            font-size: 38px;
+
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+
+            color: #cdbed0;
+        }
+
+
+        /* ================= CHEST ================= */
+
+        .memory-chest {
+
+            max-width: 850px;
+
+            margin: 0 auto 70px;
+
+            padding: 55px 30px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,91,184,0.12),
+                    rgba(113,39,140,0.18)
+                );
+
+            border:
+                1px solid
+                rgba(255,145,216,0.2);
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,0.3);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .memory-chest::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,90,190,0.06);
+
+            top: -120px;
+            right: -100px;
+        }
+
+        .chest {
+
+            width: 180px;
+            height: 130px;
+
+            margin: auto;
+
+            position: relative;
+
+            cursor: pointer;
+
+            transition: 0.5s;
+        }
+
+        .chest:hover {
+
+            transform:
+                scale(1.06);
+        }
+
+        .chest-body {
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            width: 180px;
+
+            height: 95px;
+
+            border-radius:
+                10px 10px 18px 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8b3c78,
+                    #4a164f
+                );
+
+            border:
+                2px solid
+                rgba(255,160,220,0.35);
+
+            box-shadow:
+                0 15px 30px
+                rgba(0,0,0,0.3);
+        }
+
+        .chest-lid {
+
+            position: absolute;
+
+            top: 10px;
+
+            left: 0;
+
+            width: 180px;
+
+            height: 48px;
+
+            border-radius:
+                14px 14px 5px 5px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a44c8c,
+                    #5c1b60
+                );
+
+            border:
+                2px solid
+                rgba(255,160,220,0.35);
+
+            transform-origin:
+                bottom;
+
+            transition:
+                transform 0.8s ease;
+        }
+
+        .chest.open .chest-lid {
+
+            transform:
+                rotateX(-115deg)
+                translateY(-5px);
+        }
+
+        .chest-lock {
+
+            position: absolute;
+
+            left: 50%;
+
+            bottom: 35px;
+
+            transform:
+                translateX(-50%);
+
+            width: 28px;
+
+            height: 35px;
+
+            border-radius: 5px;
+
+            background:
+                #ffb5df;
+
+            box-shadow:
+                0 0 15px
+                rgba(255,140,210,0.5);
+
+            z-index: 5;
+        }
+
+        .chest-lock::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background:
+                #5c1b60;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+        }
+
+        .chest-text {
+
+            margin-top: 35px;
+
+            color: #ffb6df;
+
+            font-size: 17px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* ================= MEMORY CARDS ================= */
+
+        .memories-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .memory-card {
+
+            position: relative;
+
+            min-height: 280px;
+
+            padding: 35px 28px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255,255,255,0.055);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            backdrop-filter:
+                blur(15px);
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                0.7s ease;
+        }
+
+        .memory-card.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+        .memory-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(255,125,205,0.5);
+
+            box-shadow:
+                0 20px 50px
+                rgba(255,0,170,0.15);
+        }
+
+        .memory-number {
+
+            position: absolute;
+
+            top: 15px;
+            right: 22px;
+
+            font-size: 48px;
+
+            font-weight: bold;
+
+            color:
+                rgba(255,255,255,0.04);
+        }
+
+        .memory-icon {
+
+            font-size: 40px;
+
+            margin-bottom: 18px;
+        }
+
+        .memory-card h3 {
+
+            color: white;
+
+            font-size: 21px;
+
+            margin-bottom: 13px;
+        }
+
+        .memory-card p {
+
+            color: #cfc1d2;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= HIDDEN MEMORY ================= */
+
+        .hidden-memory {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            color: #ffb4df !important;
+
+            animation:
+                fadeIn 0.7s ease;
+        }
+
+        .memory-card.open
+        .hidden-memory {
+
+            display: block;
+        }
+
+        .tap {
+
+            display: block;
+
+            margin-top: 18px;
+
+            color: #9e8ca2;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* ================= SPECIAL MEMORY ================= */
+
+        .special-section {
+
+            padding: 110px 20px;
+
+            background:
+                rgba(0,0,0,0.15);
+
+            text-align: center;
+        }
+
+        .special-box {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding:
+                55px 45px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,91,184,0.12),
+                    rgba(113,39,140,0.18)
+                );
+
+            border:
+                1px solid
+                rgba(255,145,216,0.2);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,0.25);
+        }
+
+        .special-icon {
+
+            font-size: 58px;
+
+            margin-bottom: 20px;
+
+            animation:
+                heartbeat 2s infinite;
+        }
+
+        .special-box h2 {
+
+            color: #ff9bd6;
+
+            font-size: 34px;
+
+            margin-bottom: 25px;
+        }
+
+        .special-box p {
+
+            color: #ddd1df;
+
+            font-size: 16px;
+
+            line-height: 2;
+        }
+
+        .signature {
+
+            margin-top: 30px;
+
+            color: #ff8fcf;
+
+            font-size: 19px;
+
+            font-style: italic;
+        }
+
+
+        /* ================= FINAL ================= */
+
+        .final-section {
+
+            min-height: 75vh;
+
+            padding: 100px 20px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .final-box {
+
+            max-width: 800px;
+        }
+
+        .final-heart {
+
+            font-size: 75px;
+
+            animation:
+                heartbeat 2s infinite;
+        }
+
+        .final-box h2 {
+
+            font-size:
+                clamp(38px, 6vw, 60px);
+
+            margin: 25px 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff91d0,
+                    white,
+                    #d391ff
+                );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+        .final-box p {
+
+            color: #d8cadd;
+
+            line-height: 2;
+
+            font-size: 17px;
+        }
+
+        .home-button {
+
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding:
+                14px 32px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff5db7,
+                    #9133bb
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .home-button:hover {
+
+            transform:
+                scale(1.06);
+
+            box-shadow:
+                0 10px 30px
+                rgba(255,0,170,0.25);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+        footer .heart {
+
+            color: #ff62bd;
+        }
+
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes float {
+
+            0%, 100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px);
+            }
+
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform:
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    scale(1.15);
+            }
+
+        }
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(8px);
+            }
+
+        }
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 950px) {
+
+            .memories-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+
+                position: relative;
+
+                flex-direction:
+                    column;
+
+                gap: 15px;
+            }
+
+            nav ul {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+            }
+
+            .hero {
+
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+
+                font-size: 48px;
+            }
+
+            .hero p {
+
+                font-size: 15px;
+            }
+
+            .memories-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .special-box {
+
+                padding:
+                    40px 22px;
+            }
+
+            .memory-card {
+
+                min-height: 250px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            Me <span>&</span> Insiyah ❤️
+
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="our-story.html">
+                    Our Story
+                </a>
+            </li>
+
+            <li>
+                <a href="timeline.html">
+                    Timeline
+                </a>
+            </li>
+
+            <li>
+                <a href="memories.html">
+                    Memories
+                </a>
+            </li>
+
+            <li>
+                <a href="gallery.html">
+                    Gallery
+                </a>
+            </li>
+
+            <li>
+                <a href="letters.html">
+                    Letters
+                </a>
+            </li>
+
+            <li>
+                <a href="songs.html">
+                    Songs
+                </a>
+            </li>
+
+            <li>
+                <a href="special-moments.html">
+                    Moments
+                </a>
+            </li>
+
+            <li>
+                <a href="future.html">
+                    Future
+                </a>
+            </li>
+
+            <li>
+                <a href="thought.html">
+                    Thoughts
+                </a>
+            </li>
+
+            <li>
+                <a href="promises.html">
+                    Promises
+                </a>
+            </li>
+
+            <li>
+                <a href="memory-box.html"
+                   class="active">
+                    Memory Box
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="box-icon">
+            📦
+        </div>
+
+        <h1>
+            Memory Box
+        </h1>
+
+        <h2>
+            A Little Place For The Moments I Never Want To Lose
+        </h2>
+
+        <p>
+
+            If memories could be placed inside a box,
+            this would be mine.
+
+            Every little moment,
+            every laugh,
+            every conversation,
+            and every feeling that became part
+            of our story belongs here.
+
+        </p>
+
+        <div class="scroll">
+            OPEN THE BOX
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="intro">
+
+        <div class="intro-box">
+
+            <h2>
+                Some Memories Deserve Their Own Place ❤️
+            </h2>
+
+            <p>
+
+                Not every memory needs a photograph.
+
+                Sometimes a memory is simply
+                a feeling you remember.
+
+                A voice.
+
+                A smile.
+
+                A late-night conversation.
+
+                A random moment that suddenly
+                becomes important years later.
+
+                This is my little collection
+                of those moments.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MEMORY BOX ================= -->
+
+    <section class="box-section">
+
+        <div class="section-title">
+
+            <h2>
+                Open The Memory Box 📦
+            </h2>
+
+            <p>
+                Click the box and discover what is inside.
+            </p>
+
+        </div>
+
+
+        <div class="memory-chest">
+
+            <div
+                class="chest"
+                id="memoryChest"
+                onclick="openChest()">
+
+                <div class="chest-lid">
+                </div>
+
+                <div class="chest-body">
+                </div>
+
+                <div class="chest-lock">
+                </div>
+
+            </div>
+
+
+            <div class="chest-text"
+                 id="chestText">
+
+                🔒 The memories are waiting...
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= MEMORY CARDS ================= -->
+
+        <div class="memories-grid"
+             id="memoriesGrid">
+
+
+            <!-- MEMORY 1 -->
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    01
+                </div>
+
+                <div class="memory-icon">
+                    💬
+                </div>
+
+                <h3>
+                    The First Conversations
+                </h3>
+
+                <p>
+
+                    Every story begins somewhere.
+
+                    Sometimes we don't realize
+                    how important a simple conversation
+                    will become.
+
+                </p>
+
+                <span class="tap">
+                    TAP TO OPEN MEMORY
+                </span>
+
+                <p class="hidden-memory">
+
+                    Somewhere between those first
+                    conversations, a memory was created
+                    that I still carry today.
+
+                </p>
+
+            </div>
+
+
+            <!-- MEMORY 2 -->
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    02
+                </div>
+
+                <div class="memory-icon">
+                    😊
+                </div>
+
+                <h3>
+                    Your Smile
+                </h3>
+
+                <p>
+
+                    Some moments don't need
+                    complicated explanations.
+
+                    Sometimes a smile is enough.
+
+                </p>
+
+                <span class="tap">
+                    TAP TO OPEN MEMORY
+                </span>
+
+                <p class="hidden-memory">
+
+                    I still remember how something
+                    as simple as your smile could make
+                    an ordinary moment feel different.
+
+                </p>
+
+            </div>
+
+
+            <!-- MEMORY 3 -->
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    03
+                </div>
+
+                <div class="memory-icon">
+                    🌙
+                </div>
+
+                <h3>
+                    Late Night Talks
+                </h3>
+
+                <p>
+
+                    There was something special
+                    about conversations when the world
+                    became quiet.
+
+                </p>
+
+                <span class="tap">
+                    TAP TO OPEN MEMORY
+                </span>
+
+                <p class="hidden-memory">
+
+                    Those conversations became
+                    little pieces of time that
+                    I wish I could visit again.
+
+                </p>
+
+            </div>
+
+
+            <!-- MEMORY 4 -->
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    04
+                </div>
+
+                <div class="memory-icon">
+                    🎶
+                </div>
+
+                <h3>
+                    The Songs
+                </h3>
+
+                <p>
+
+                    Some songs are just songs.
+
+                    Until they become connected
+                    to someone.
+
+                </p>
+
+                <span class="tap">
+                    TAP TO OPEN MEMORY
+                </span>
+
+                <p class="hidden-memory">
+
+                    Even now, a familiar song can
+                    suddenly bring an entire moment
+                    back to life.
+
+                </p>
+
+            </div>
+
+
+            <!-- MEMORY 5 -->
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    05
+                </div>
+
+                <div class="memory-icon">
+                    😂
+                </div>
+
+                <h3>
+                    The Funny Moments
+                </h3>
+
+                <p>
+
+                    Not every memory has to be deep.
+
+                    Some of the best ones are simply
+                    the moments that made us laugh.
+
+                </p>
+
+                <span class="tap">
+                    TAP TO OPEN MEMORY
+                </span>
+
+                <p class="hidden-memory">
+
+                    The silly moments are often the
+                    ones that become unexpectedly
+                    precious later.
+
+                </p>
+
+            </div>
+
+
+            <!-- MEMORY 6 -->
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    06
+                </div>
+
+                <div class="memory-icon">
+                    🫶
+                </div>
+
+                <h3>
+                    The Little Things
+                </h3>
+
+                <p>
+
+                    Sometimes it isn't the big event
+                    that stays with us.
+
+                    It is the tiny details.
+
+                </p>
+
+                <span class="tap">
+                    TAP TO OPEN MEMORY
+                </span>
+
+                <p class="hidden-memory">
+
+                    The little things were sometimes
+                    the biggest part of the memory.
+
+                </p>
+
+            </div>
+
+
+            <!-- MEMORY 7 -->
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    07
+                </div>
+
+                <div class="memory-icon">
+                    🌧️
+                </div>
+
+                <h3>
+                    The Difficult Days
+                </h3>
+
+                <p>
+
+                    Not every memory is happy.
+
+                    Some moments were difficult,
+                    confusing and painful.
+
+                </p>
+
+                <span class="tap">
+                    TAP TO OPEN MEMORY
+                </span>
+
+                <p class="hidden-memory">
+
+                    But even difficult moments can
+                    teach us something about ourselves,
+                    life and the people we care about.
+
+                </p>
+
+            </div>
+
+
+            <!-- MEMORY 8 -->
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    08
+                </div>
+
+                <div class="memory-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    The Moments That Stayed
+                </h3>
+
+                <p>
+
+                    Some memories disappear slowly.
+
+                    Others remain surprisingly clear.
+
+                </p>
+
+                <span class="tap">
+                    TAP TO OPEN MEMORY
+                </span>
+
+                <p class="hidden-memory">
+
+                    Maybe the memories that stay
+                    are simply the ones that meant
+                    something to us.
+
+                </p>
+
+            </div>
+
+
+            <!-- MEMORY 9 -->
+
+            <div class="memory-card">
+
+                <div class="memory-number">
+                    09
+                </div>
+
+                <div class="memory-icon">
+                    ♾️
+                </div>
+
+                <h3>
+                    Our Chapter
+                </h3>
+
+                <p>
+
+                    Every chapter has its own
+                    beginning, middle and ending.
+
+                    But the memories remain.
+
+                </p>
+
+                <span class="tap">
+                    TAP TO OPEN MEMORY
+                </span>
+
+                <p class="hidden-memory">
+
+                    Whatever the future holds,
+                    this chapter will always be
+                    one part of my story.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SPECIAL MEMORY ================= -->
+
+    <section class="special-section">
+
+        <div class="special-box">
+
+            <div class="special-icon">
+                💌
+            </div>
+
+            <h2>
+                The Memory I Keep Closest
+            </h2>
+
+            <p>
+
+                Insiyah,
+
+                there are probably hundreds of
+                little memories that I could write here.
+
+                But maybe the most important part
+                isn't any single moment.
+
+                It's the feeling of knowing that
+                for a certain part of my life,
+                there was someone whose presence
+                made ordinary moments feel different.
+
+                That is a memory worth keeping.
+
+            </p>
+
+            <div class="signature">
+                — Taher ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FINAL ================= -->
+
+    <section class="final-section">
+
+        <div class="final-box">
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+            <h2>
+                The Box Can Close...
+            </h2>
+
+            <p>
+
+                But the memories don't have to disappear.
+
+                They can stay quietly inside us,
+                becoming part of who we are.
+
+                And maybe that's the beautiful thing
+                about memories.
+
+                We cannot change them.
+
+                We cannot relive them.
+
+                But we can always remember them.
+
+            </p>
+
+            <a
+                href="index.html"
+                class="home-button">
+
+                Back To Our Story
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with
+        <span class="heart">
+            ❤️
+        </span>
+        by Taher
+
+        <br><br>
+
+        Me & Insiyah — Our Memories.
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* ================= OPEN CHEST ================= */
+
+        function openChest() {
+
+            const chest =
+                document.getElementById(
+                    "memoryChest"
+                );
+
+            const text =
+                document.getElementById(
+                    "chestText"
+                );
+
+            const grid =
+                document.getElementById(
+                    "memoriesGrid"
+                );
+
+
+            chest.classList.toggle("open");
+
+
+            if (
+                chest.classList.contains("open")
+            ) {
+
+                text.innerHTML =
+                    "✨ The memory box is open...";
+
+                grid.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+                revealCards();
+
+            } else {
+
+                text.innerHTML =
+                    "🔒 The memories are waiting...";
+
+            }
+
+        }
+
+
+        /* ================= REVEAL CARDS ================= */
+
+        function revealCards() {
+
+            const cards =
+                document.querySelectorAll(
+                    ".memory-card"
+                );
+
+
+            cards.forEach(
+                (card, index) => {
+
+                    setTimeout(
+                        () => {
+
+                            card.classList.add(
+                                "show"
+                            );
+
+                        },
+                        index * 120
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* ================= MEMORY CARD CLICK ================= */
+
+        const cards =
+            document.querySelectorAll(
+                ".memory-card"
+            );
+
+
+        cards.forEach(card => {
+
+            card.addEventListener(
+                "click",
+                function() {
+
+                    this.classList.toggle(
+                        "open"
+                    );
+
+                }
+            );
+
+        });
+
+
+        /* ================= SCROLL REVEAL ================= */
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "show"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        cards.forEach(card => {
+
+            observer.observe(card);
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

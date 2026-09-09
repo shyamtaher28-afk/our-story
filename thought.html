@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Thoughts ❤️ | Me & Insiyah</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top, #45104f, transparent 35%),
+                linear-gradient(135deg, #0d0013, #2b0635, #120018);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 0, 15, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff8fcf;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #eee;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #ff75c8;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 75vh;
+            padding: 150px 20px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .thought-icon {
+            font-size: 65px;
+            margin-bottom: 25px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 82px);
+            margin-bottom: 18px;
+            background: linear-gradient(
+                90deg,
+                #ff91d0,
+                white,
+                #d391ff
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero h2 {
+            color: #ffb5df;
+            font-weight: 400;
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            color: #d9cadd;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        .scroll {
+            margin-top: 40px;
+            color: #ff8dce;
+            font-size: 13px;
+            letter-spacing: 3px;
+            animation: bounce 2s infinite;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .intro-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .intro h2 {
+            font-size: 38px;
+            color: #ff9bd6;
+            margin-bottom: 25px;
+        }
+
+        .intro p {
+            color: #d8cadd;
+            line-height: 2;
+            font-size: 16px;
+        }
+
+
+        /* ================= THOUGHT CARDS ================= */
+
+        .thoughts-section {
+            padding: 70px 7% 110px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            color: #ff9bd6;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #cdbed0;
+        }
+
+        .thoughts-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .thought-card {
+            position: relative;
+            padding: 35px;
+            min-height: 250px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .thought-card::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(255,100,190,0.08);
+            top: -90px;
+            right: -90px;
+        }
+
+        .thought-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,125,205,0.5);
+            box-shadow:
+                0 20px 50px rgba(255,0,170,0.14);
+        }
+
+        .thought-number {
+            position: absolute;
+            top: 18px;
+            right: 25px;
+            font-size: 45px;
+            font-weight: bold;
+            color: rgba(255,255,255,0.04);
+        }
+
+        .thought-symbol {
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .thought-card h3 {
+            font-size: 21px;
+            margin-bottom: 14px;
+            color: #fff;
+        }
+
+        .thought-card p {
+            color: #cfc1d2;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+
+        /* ================= NOTE ================= */
+
+        .note-section {
+            padding: 100px 20px;
+            background: rgba(0,0,0,0.15);
+        }
+
+        .note {
+            max-width: 850px;
+            margin: auto;
+            padding: 50px;
+            border-radius: 28px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,91,184,0.12),
+                    rgba(113,39,140,0.16)
+                );
+            border: 1px solid rgba(255,145,216,0.18);
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .note-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .note h2 {
+            color: #ff9bd6;
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+
+        .note p {
+            color: #ded2df;
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        .signature {
+            margin-top: 30px;
+            color: #ff8fcf;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+
+        /* ================= TYPEWRITER ================= */
+
+        .type-section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .type-section h2 {
+            color: #ff9bd6;
+            font-size: 34px;
+            margin-bottom: 35px;
+        }
+
+        .type-box {
+            max-width: 850px;
+            min-height: 150px;
+            margin: auto;
+            padding: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.09);
+        }
+
+        #typingText {
+            color: #eee;
+            font-size: 21px;
+            line-height: 1.8;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 25px;
+            background: #ff72c6;
+            margin-left: 5px;
+            animation: blink 0.8s infinite;
+        }
+
+
+        /* ================= FINAL MESSAGE ================= */
+
+        .final-section {
+            min-height: 80vh;
+            padding: 100px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .final-box {
+            max-width: 800px;
+        }
+
+        .final-heart {
+            font-size: 75px;
+            animation: heartbeat 2s infinite;
+        }
+
+        .final-box h2 {
+            font-size: clamp(38px, 6vw, 62px);
+            margin: 25px 0;
+            background: linear-gradient(
+                90deg,
+                #ff91d0,
+                white,
+                #d391ff
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .final-box p {
+            color: #d8cadd;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            background: linear-gradient(
+                135deg,
+                #ff5db7,
+                #9133bb
+            );
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            transform: scale(1.06);
+            box-shadow:
+                0 10px 30px rgba(255,0,170,0.25);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        footer .heart {
+            color: #ff62bd;
+        }
+
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
+
+        }
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(8px);
+            }
+
+        }
+
+        @keyframes blink {
+
+            0%, 50% {
+                opacity: 1;
+            }
+
+            51%, 100% {
+                opacity: 0;
+            }
+
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .thoughts-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                position: relative;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .thought-card {
+                padding: 28px;
+            }
+
+            .note {
+                padding: 35px 22px;
+            }
+
+            #typingText {
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            Me <span>&</span> Insiyah ❤️
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="our-story.html">
+                    Our Story
+                </a>
+            </li>
+
+            <li>
+                <a href="timeline.html">
+                    Timeline
+                </a>
+            </li>
+
+            <li>
+                <a href="memories.html">
+                    Memories
+                </a>
+            </li>
+
+            <li>
+                <a href="gallery.html">
+                    Gallery
+                </a>
+            </li>
+
+            <li>
+                <a href="letters.html">
+                    Letters
+                </a>
+            </li>
+
+            <li>
+                <a href="songs.html">
+                    Songs
+                </a>
+            </li>
+
+            <li>
+                <a href="special-moments.html">
+                    Moments
+                </a>
+            </li>
+
+            <li>
+                <a href="future.html">
+                    Future
+                </a>
+            </li>
+
+            <li>
+                <a href="thought.html"
+                   class="active">
+                    Thoughts
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="thought-icon">
+            💭
+        </div>
+
+        <h1>My Thoughts</h1>
+
+        <h2>The Things That Live Inside My Mind</h2>
+
+        <p>
+            There are some feelings that are difficult to explain.
+            Some thoughts are never spoken out loud.
+            So I decided to put a few of them here.
+        </p>
+
+        <div class="scroll">
+            SCROLL TO READ
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="intro">
+
+        <div class="intro-container">
+
+            <h2>
+                If My Mind Could Speak...
+            </h2>
+
+            <p>
+
+                It would probably talk about the little things.
+
+                The conversations.
+                The smiles.
+                The waiting.
+                The memories.
+                The moments that seemed ordinary at the time
+                but somehow became important later.
+
+                Sometimes I wonder how one person can become
+                such a big part of someone's thoughts.
+
+                And somehow...
+
+                I already know the answer.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= THOUGHT CARDS ================= -->
+
+    <section class="thoughts-section">
+
+        <div class="section-title">
+
+            <h2>
+                Things I Think About ❤️
+            </h2>
+
+            <p>
+                Thoughts I don't always know how to say.
+            </p>
+
+        </div>
+
+
+        <div class="thoughts-grid">
+
+
+            <!-- THOUGHT 1 -->
+
+            <div class="thought-card">
+
+                <div class="thought-number">
+                    01
+                </div>
+
+                <div class="thought-symbol">
+                    🌙
+                </div>
+
+                <h3>
+                    At Night
+                </h3>
+
+                <p>
+
+                    Nights have a strange way of making
+                    memories louder.
+
+                    When everything becomes quiet,
+                    the mind starts replaying moments
+                    that were forgotten during the day.
+
+                </p>
+
+            </div>
+
+
+            <!-- THOUGHT 2 -->
+
+            <div class="thought-card">
+
+                <div class="thought-number">
+                    02
+                </div>
+
+                <div class="thought-symbol">
+                    💭
+                </div>
+
+                <h3>
+                    Random Memories
+                </h3>
+
+                <p>
+
+                    Sometimes something completely random
+                    reminds me of you.
+
+                    A song.
+                    A place.
+                    A sentence.
+                    A simple smile.
+
+                    And suddenly, there you are
+                    in my thoughts again.
+
+                </p>
+
+            </div>
+
+
+            <!-- THOUGHT 3 -->
+
+            <div class="thought-card">
+
+                <div class="thought-number">
+                    03
+                </div>
+
+                <div class="thought-symbol">
+                    😊
+                </div>
+
+                <h3>
+                    Your Smile
+                </h3>
+
+                <p>
+
+                    I don't think you ever realized
+                    how much your smile could change
+                    the mood of an ordinary moment.
+
+                    Some smiles are simply remembered.
+
+                </p>
+
+            </div>
+
+
+            <!-- THOUGHT 4 -->
+
+            <div class="thought-card">
+
+                <div class="thought-number">
+                    04
+                </div>
+
+                <div class="thought-symbol">
+                    🕰️
+                </div>
+
+                <h3>
+                    Time
+                </h3>
+
+                <p>
+
+                    Time changes many things.
+
+                    People change.
+                    Circumstances change.
+                    Feelings become complicated.
+
+                    But memories have a strange way
+                    of staying exactly where we left them.
+
+                </p>
+
+            </div>
+
+
+            <!-- THOUGHT 5 -->
+
+            <div class="thought-card">
+
+                <div class="thought-number">
+                    05
+                </div>
+
+                <div class="thought-symbol">
+                    ❤️
+                </div>
+
+                <h3>
+                    What You Meant
+                </h3>
+
+                <p>
+
+                    Maybe you were never just another
+                    person in my life.
+
+                    You became part of a chapter
+                    that changed the way I understood
+                    love, attachment and memories.
+
+                </p>
+
+            </div>
+
+
+            <!-- THOUGHT 6 -->
+
+            <div class="thought-card">
+
+                <div class="thought-number">
+                    06
+                </div>
+
+                <div class="thought-symbol">
+                    🌧️
+                </div>
+
+                <h3>
+                    The Difficult Thoughts
+                </h3>
+
+                <p>
+
+                    Not every thought is beautiful.
+
+                    Some hurt.
+                    Some confuse me.
+                    Some make me wish things had
+                    happened differently.
+
+                    But they are still part of my story.
+
+                </p>
+
+            </div>
+
+
+            <!-- THOUGHT 7 -->
+
+            <div class="thought-card">
+
+                <div class="thought-number">
+                    07
+                </div>
+
+                <div class="thought-symbol">
+                    🫶
+                </div>
+
+                <h3>
+                    Gratitude
+                </h3>
+
+                <p>
+
+                    Whatever happens next,
+                    I'm grateful for the moments
+                    that made me smile.
+
+                    Some people teach us through
+                    words.
+
+                    Others teach us simply by being
+                    part of our lives.
+
+                </p>
+
+            </div>
+
+
+            <!-- THOUGHT 8 -->
+
+            <div class="thought-card">
+
+                <div class="thought-number">
+                    08
+                </div>
+
+                <div class="thought-symbol">
+                    ✨
+                </div>
+
+                <h3>
+                    Maybe Someday
+                </h3>
+
+                <p>
+
+                    Maybe someday these memories
+                    will simply become memories.
+
+                    Maybe they will mean something
+                    different.
+
+                    Maybe life will take us somewhere
+                    neither of us expected.
+
+                    And that's okay.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PERSONAL NOTE ================= -->
+
+    <section class="note-section">
+
+        <div class="note">
+
+            <div class="note-icon">
+                📝
+            </div>
+
+            <h2>
+                A Thought For You
+            </h2>
+
+            <p>
+
+                Insiyah,
+
+                I don't know where life takes us from here.
+
+                I don't know what tomorrow looks like,
+                and I don't know which memories will
+                stay with us forever.
+
+                But I do know that the time we shared
+                became something meaningful to me.
+
+                There are moments I will remember,
+                lessons I will carry,
+                and feelings that helped shape
+                the person I am becoming.
+
+                Maybe that's what some people are meant
+                to do in our lives.
+
+                They leave behind memories,
+                lessons and a part of themselves.
+
+            </p>
+
+            <div class="signature">
+                — Taher ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TYPEWRITER ================= -->
+
+    <section class="type-section">
+
+        <h2>
+            One Thought At A Time...
+        </h2>
+
+        <div class="type-box">
+
+            <div id="typingText"></div>
+
+            <span class="cursor"></span>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FINAL ================= -->
+
+    <section class="final-section">
+
+        <div class="final-box">
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+            <h2>
+                Some Thoughts Never Need An Answer
+            </h2>
+
+            <p>
+
+                Maybe the purpose of remembering
+                isn't always to go back.
+
+                Sometimes it's simply to appreciate
+                what once existed.
+
+                And to carry the beautiful parts
+                forward.
+
+            </p>
+
+            <a href="index.html"
+               class="back-button">
+                Back To Our Story
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with
+        <span class="heart">❤️</span>
+        by Taher
+
+        <br><br>
+
+        Me & Insiyah — Our Memories.
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        const thoughts = [
+
+            "Some memories become a part of who we are.",
+
+            "Sometimes a song can bring an entire moment back.",
+
+            "The smallest moments can become the biggest memories.",
+
+            "Not every story needs a perfect ending to be meaningful.",
+
+            "Some people remain in our thoughts long after the moment has passed.",
+
+            "Maybe memories are proof that something once mattered.",
+
+            "Time moves forward, but memories sometimes stay still.",
+
+            "There are feelings that words will never completely explain."
+
+        ];
+
+
+        const typingText =
+            document.getElementById("typingText");
+
+
+        let thoughtIndex = 0;
+        let characterIndex = 0;
+        let deleting = false;
+
+
+        function typeWriter() {
+
+            const currentThought =
+                thoughts[thoughtIndex];
+
+
+            if (!deleting) {
+
+                typingText.textContent =
+                    currentThought.substring(
+                        0,
+                        characterIndex + 1
+                    );
+
+                characterIndex++;
+
+
+                if (characterIndex === currentThought.length) {
+
+                    deleting = true;
+
+                    setTimeout(
+                        typeWriter,
+                        2500
+                    );
+
+                    return;
+
+                }
+
+            } else {
+
+                typingText.textContent =
+                    currentThought.substring(
+                        0,
+                        characterIndex - 1
+                    );
+
+                characterIndex--;
+
+
+                if (characterIndex === 0) {
+
+                    deleting = false;
+
+                    thoughtIndex++;
+
+                    if (
+                        thoughtIndex >=
+                        thoughts.length
+                    ) {
+                        thoughtIndex = 0;
+                    }
+
+                }
+
+            }
+
+
+            setTimeout(
+                typeWriter,
+                deleting ? 35 : 65
+            );
+
+        }
+
+
+        typeWriter();
+
+    </script>
+
+</body>
+</html>
